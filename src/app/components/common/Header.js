@@ -4,24 +4,22 @@ import { useState, useEffect } from 'react';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true); // State for triggering animation
+  const [isAnimating, setIsAnimating] = useState(true); 
 
-  // Background images array and corresponding titles/descriptions
   const images = [
     {
       src: "/Assests/web1.jpg",
-      title: "Welcome to Our University",
-      description: "Discover the future with us",
+      title: "Your Legal Companion",
+      description: "Powered by AI",
     },
     {
       src: "/Assests/web2.jpg",
-      title: "Excellence in Education",
-      description: "Shaping minds for a brighter tomorrow",
+      title: "Justice prevails through",
+      description: "righteousness alone.",
     },
     {
-      src: "/Assests/web3.jpg",
-      title: "Innovation and Research",
-      description: "Pushing the boundaries of knowledge",
+      src: "/Assests/mai06.jpg",
+      title: "।। धर्मेणैव जयते न्यायः।।"
     }
   ];
 
@@ -66,16 +64,22 @@ export default function Header() {
           {/* Navbar Links */}
           <ul className="flex space-x-8 text-black">
             <li className="hover:text-gray-600 transition duration-200">
-              <a href="#academics">Academics</a>
+              <a href="#academics">Legal Aid</a>
             </li>
             <li className="hover:text-gray-600 transition duration-200">
-              <a href="#admission">Admission</a>
+              <a href="#admission">Partners</a>
             </li>
             <li className="hover:text-gray-600 transition duration-200">
-              <a href="#research">Research</a>
+              <a href="#research">Resources</a>
             </li>
             <li className="hover:text-gray-600 transition duration-200">
-              <a href="#contact">Contact</a>
+              <a href="#contact">Blog</a>
+            </li>
+            <li className="hover:text-gray-600 transition duration-200">
+              <a href="#contact">About Us </a>
+            </li>
+            <li className="hover:text-gray-600 transition duration-200">
+              <a href="#contact">Contact Us </a>
             </li>
           </ul>
         </div>
@@ -92,7 +96,7 @@ export default function Header() {
         <div className={`absolute left-10 inset-0 flex flex-col  justify-center text-red-500  transition-all duration-1000 transform ${isAnimating ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
           <h1 className="text-5xl font-bold mb-4">{images[currentImage].title}</h1>
          
-          <p className="text-lg">{images[currentImage].description}</p>
+          <p className="text-2xl">{images[currentImage].description}</p>
         </div>
       </div>
     </header>
