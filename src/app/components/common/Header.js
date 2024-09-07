@@ -1,12 +1,13 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // For mobile toggle icons
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true); // State for triggering animation
 
-  // Background images array and corresponding titles/descriptions
   const images = [
     {
       src: "/Assests/web1.jpg",
@@ -22,28 +23,25 @@ export default function Header() {
       src: "/Assests/web3.jpg",
       title: "Innovation and Research",
       description: "Pushing the boundaries of knowledge",
-    }
+    },
   ];
 
-  // Scroll effect to change navbar style
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolled(offset > 50);
+      setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Carousel effect for background images with left-to-right and fade-in animation
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(false); // Start fade out
       setTimeout(() => {
         setCurrentImage((prevImage) => (prevImage + 1) % images.length); // Change image
-        setIsAnimating(true); // Start animation for fade-in
-      }, 500); // Wait for the fade-out effect to complete
+        setIsAnimating(true); // Start fade-in
+      }, 500); // Fade-out duration
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
@@ -51,47 +49,144 @@ export default function Header() {
 
   return (
     <header>
-      {/* Navbar Section (Fixed and Doesn't Change) */}
+      {/* Navbar Section */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white shadow-lg h-20' : 'bg-transparent h-20'
+          scrolled ? "bg-white shadow-lg h-16" : "bg-transparent h-20"
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-6 py-1">
+        <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
-          <div className="font-bold text-2xl text-black">
-            <img src="/Assests/logo.png" alt="Logo" className="h-[5rem] w-[9rem]" />
+          <div className="font-bold text-2xl text-white">
+            <img
+              src="/Assests/logo.png"
+              alt="Logo"
+              className="h-[5rem] w-[9rem]"
+            />
           </div>
 
-          {/* Navbar Links */}
-          <ul className="flex space-x-8 text-black">
-            <li className="hover:text-gray-600 transition duration-200">
-              <a href="#academics">Academics</a>
+          {/* Toggle Button for Mobile View */}
+          <div className="md:hidden">
+            {isMenuOpen ? (
+              <AiOutlineClose
+                className="text-red-500 text-3xl cursor-pointer"
+                onClick={() => setIsMenuOpen(false)}
+              />
+            ) : (
+              <AiOutlineMenu
+                className="text-black  text-3xl cursor-pointer"
+                onClick={() => setIsMenuOpen(true)}
+              />
+            )}
+          </div>
+
+          {/* Navbar Links for Desktop */}
+          <ul className="hidden md:flex space-x-8 text-black">
+            {[
+              "Legal Aid",
+              "Partners",
+              "Resources",
+              "Blogs",
+              "About Us",
+              "Contact Us",
+            ].map((item, idx) => (
+              <li key={idx} className="relative group">
+                <a
+                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="hover:text-white hover:bg-slate-500 px-4 py-2 rounded-lg text-lg font-semibold transition"
+                >
+                  {item}
+                </a>
+
+                {/* Dropdown Menu */}
+                <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 z-50">
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Submenu 1
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Submenu 2
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Submenu 3
+                  </a>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
+                  >
+                    Submenu 4
+                  </a>
+                </div>
+              </li>
+            ))}
+
+            {/* Premium Button */}
+            <li className="ml-5">
+              <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-lg">
+                Premium Services
+              </button>
             </li>
-            <li className="hover:text-gray-600 transition duration-200">
-              <a href="#admission">Admission</a>
-            </li>
-            <li className="hover:text-gray-600 transition duration-200">
-              <a href="#research">Research</a>
-            </li>
-            <li className="hover:text-gray-600 transition duration-200">
-              <a href="#contact">Contact</a>
+          </ul>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } md:hidden bg-white text-center absolute w-full z-50 py-6`}
+        >
+          <ul className="space-y-6 text-lg font-semibold">
+            {[
+              "Legal Aid",
+              "Partners",
+              "Resources",
+              "Blogs",
+              "About Us",
+              "Contact Us",
+            ].map((item, idx) => (
+              <li key={idx}>
+                <a
+                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="block text-gray-700 hover:text-yellow-600 transition"
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+
+            <li>
+              <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-lg w-full">
+                Premium Services
+              </button>
             </li>
           </ul>
         </div>
       </nav>
 
-      {/* Background Image and Title Section with left-to-right and fade-in animation */}
+      {/* Background Image and Title Section */}
       <div
-        className={`relative w-full h-[600px] bg-cover bg-center transition-all duration-1000 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
+        className={`relative w-full h-[600px] bg-cover bg-center transition-all duration-1000 ${
+          isAnimating ? "opacity-100" : "opacity-0"
+        }`}
         style={{
           backgroundImage: `url(${images[currentImage].src})`,
         }}
       >
-        {/* Title and Description with left-to-right animation */}
-        <div className={`absolute left-10 inset-0 flex flex-col  justify-center text-red-500  transition-all duration-1000 transform ${isAnimating ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+        {/* Title and Description */}
+        <div
+          className={`absolute left-10 inset-0 flex flex-col justify-center text-red-500 transition-all duration-1000 transform ${
+            isAnimating ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+          }`}
+        >
           <h1 className="text-5xl font-bold mb-4">{images[currentImage].title}</h1>
-         
           <p className="text-lg">{images[currentImage].description}</p>
         </div>
       </div>
