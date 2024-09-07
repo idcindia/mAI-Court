@@ -1,7 +1,13 @@
-import HomePage from "./components/home/HomePage";
+'use client';
+// import { Footer } from "./components/common/Footer";
+import Header  from "./components/common/Header";
+// import ImageSlider from "./components/home/HomePage"; // assuming the carousel is in HomePage.js
 
 export default function Home() {
   return (
-    <HomePage />
+    <div>
+      {/* navbar */}
+      <Header />
+    </div>
   );
 }
