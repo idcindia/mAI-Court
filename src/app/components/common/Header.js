@@ -9,17 +9,17 @@ export default function Header() {
   // Background images array and corresponding titles/descriptions
   const images = [
     {
-      src: "/Assests/web11.png",
+      src: "/Assests/web1.jpg",
       title: "Welcome to Our University",
       description: "Discover the future with us",
     },
     {
-      src: "/Assests/web01.png",
+      src: "/Assests/web2.jpg",
       title: "Excellence in Education",
       description: "Shaping minds for a brighter tomorrow",
     },
     {
-      src: "/Assests/web1.png",
+      src: "/Assests/web3.jpg",
       title: "Innovation and Research",
       description: "Pushing the boundaries of knowledge",
     }
@@ -89,8 +89,9 @@ export default function Header() {
         }}
       >
         {/* Title and Description with left-to-right animation */}
-        <div className={`absolute inset-0 flex flex-col items-center justify-center text-white text-center transition-all duration-1000 transform ${isAnimating ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+        <div className={`absolute left-10 inset-0 flex flex-col  justify-center text-red-500  transition-all duration-1000 transform ${isAnimating ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
           <h1 className="text-5xl font-bold mb-4">{images[currentImage].title}</h1>
+         
           <p className="text-lg">{images[currentImage].description}</p>
         </div>
       </div>
