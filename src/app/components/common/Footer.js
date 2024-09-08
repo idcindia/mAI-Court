@@ -17,11 +17,14 @@ const Footer = () => {
             <div>
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <p className="flex items-center justify-center md:justify-start mb-1">
-              <FaPhoneAlt className="mr-2" /> +1 800 123 456
+              <FaPhoneAlt className="mr-2" /> +91 98704 04499
             </p>
             <p className="flex items-center justify-center md:justify-start mb-1">
               <FaEnvelope className="mr-2" /> support@maicourt.com
             </p>
+            <p className="justify-center md:justify-start mb-1">
+                Address - GL 07, Ashoka Estate, Barakhamba Road, New Delhi
+              </p>
             </div>
             
           </div>

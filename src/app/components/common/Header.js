@@ -11,18 +11,18 @@ export default function Header() {
   const images = [
     {
       src: "/Assests/web1.jpg",
-      title: "Welcome to Our University",
-      description: "Discover the future with us",
+      title: "Your Legal Companion",
+      description: "Powered by AI",
     },
     {
       src: "/Assests/web2.jpg",
-      title: "Excellence in Education",
-      description: "Shaping minds for a brighter tomorrow",
+      title:"Justice prevails through",
+      description: "righteousness alone.",
     },
     {
       src: "/Assests/web3.jpg",
-      title: "Innovation and Research",
-      description: "Pushing the boundaries of knowledge",
+      title:"।। धर्मेणैव जयते न्यायः।।"
+      //description: "Pushing the boundaries of knowledge",
     },
   ];
 
