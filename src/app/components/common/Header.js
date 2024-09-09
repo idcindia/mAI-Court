@@ -13,16 +13,19 @@ export default function Header() {
     {
       src: "/Assests/newlaw.jpeg",
       title: "Your Legal Companion ",
+      highlight: "Powered by AI",
       description: "Simplifying legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
     },
     {
       src: "/Assests/web2.jpg",
-      title:"Justice prevails",
+      title:"Justice prevails through",
+      highlight: "righteousness alone.",
       description: "Justice thrives when righteousness leads, ensuring fairness, truth, and integrity in every action, fostering a just society.",
     },
     {
       src: "/Assests/web3.jpg",
       title:"।। धर्मेणैव जयते न्यायः।।",
+     
       description: "Exploring new horizons through innovation and wisdom, committed to advancing knowledge with integrity and purpose for all.",
     },
   ];
@@ -193,7 +196,7 @@ export default function Header() {
 
       {/* Background Image and Title Section */}
       <div
-        className={`relative w-full h-[600px] qshadow-[0px_10px_20px_5px_#a0aec0] bg-cover  bg-no-repeat bg-center transition-all duration-1000 ${
+        className={`relative w-full h-[600px] shadow-[0px_10px_20px_-2px_#ecc94b] bg-cover  bg-no-repeat bg-center transition-all duration-1000 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         style={{
@@ -207,6 +210,7 @@ export default function Header() {
           }`}
         >
           <h1 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#D8AC09]">{images[currentImage].title}</h1>
+          <h2 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#414040]">{images[currentImage].highlight}</h2>
           <p className="lg:text-xl text-lg font-semibold text-gray-700">{images[currentImage].description}</p>
         </div>
       </div>
