@@ -13,11 +13,11 @@ export default function Header() {
     {
       src: "/Assests/newlaw.jpeg",
       title: "Your Legal Companion ",
-      description: "Your Legal Companion simplifies legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
+      description: "Simplifying legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
     },
     {
       src: "/Assests/web2.jpg",
-      title:"Justice prevails through",
+      title:"Justice prevails",
       description: "Justice thrives when righteousness leads, ensuring fairness, truth, and integrity in every action, fostering a just society.",
     },
     {
