@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; // For mobile toggle icons
 
@@ -14,19 +16,21 @@ export default function Header() {
       src: "/Assests/newlaw.jpeg",
       title: "Your Legal Companion ",
       highlight: "Powered by AI",
-      description: "Simplifying legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
+      description:
+        "Simplifying legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
     },
     {
       src: "/Assests/web2.jpg",
-      title:"Justice prevails through",
+      title: "Justice prevails through",
       highlight: "righteousness alone.",
-      description: "Justice thrives when righteousness leads, ensuring fairness, truth, and integrity in every action, fostering a just society.",
+      description:
+        "Justice thrives when righteousness leads, ensuring fairness, truth, and integrity in every action, fostering a just society.",
     },
     {
       src: "/Assests/web3.jpg",
-      title:"।। धर्मेणैव जयते न्यायः।।",
-     
-      description: "Exploring new horizons through innovation and wisdom, committed to advancing knowledge with integrity and purpose for all.",
+      title: "।। धर्मेणैव जयते न्यायः।।",
+      description:
+        "Exploring new horizons through innovation and wisdom, committed to advancing knowledge with integrity and purpose for all.",
     },
   ];
 
@@ -49,11 +53,23 @@ export default function Header() {
     },
     {
       name: "About Us",
-      submenus: ["Our Mission", "Our Team", "Careers", "Contact Us", "Support", "FAQ", "Customer Service", "Reach Us"],
+      submenus: [
+        "Our Mission",
+        "Our Team",
+        "Careers",
+        "Contact Us",
+        "Support",
+        "FAQ",
+        "Customer Service",
+        "Reach Us",
+      ],
     },
     {
       name: "Join Us",
-      submenus: ["LogIn", "SignUp"],
+      submenus: [
+        { name: "LogIn", path: "/login" },
+        { name: "SignUp", path: "/register" },
+      ],
     },
   ];
 
@@ -93,10 +109,12 @@ export default function Header() {
         <div className="container mx-auto flex items-center justify-between px-6 py-1">
           {/* Logo */}
           <div className="font-bold text-2xl text-white">
-            <img
+            <Image
               src="/Assests/logo.png"
               alt="Logo"
               className="h-[5rem] w-[9rem]"
+              width={144}
+              height={80}
             />
           </div>
 
@@ -119,23 +137,27 @@ export default function Header() {
           <ul className="hidden md:flex space-x-1 text-black">
             {navItems.map((item, idx) => (
               <li key={idx} className="relative group">
-                <a
+                <Link
                   href={`#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                   className="hover:text-white hover:bg-slate-500 px-4 py-2 rounded-lg text-lg font-semibold transition"
                 >
                   {item.name}
-                </a>
+                </Link>
 
                 {/* Dropdown Menu for Desktop */}
                 <div className="absolute hidden group-hover:block lg:bg-white bg-gray-600 shadow-lg rounded-lg mt-2 w-48 z-50">
                   {item.submenus.map((submenu, subIdx) => (
-                    <a
+                    <Link
                       key={subIdx}
-                      href={`#${submenu.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2 lg:text-gray-700  text--300  hover:bg-gray-200"
+                      href={
+                        typeof submenu === 'object' 
+                          ? submenu.path
+                          : `#${submenu.toLowerCase().replace(/\s+/g, "-")}`
+                      }
+                      className="block px-4 py-2 lg:text-gray-700 text-gray-300 hover:bg-gray-200"
                     >
-                      {submenu}
-                    </a>
+                      {typeof submenu === 'object' ? submenu.name : submenu}
+                    </Link>
                   ))}
                 </div>
               </li>
@@ -173,10 +195,13 @@ export default function Header() {
                     {item.submenus.map((submenu, subIdx) => (
                       <li key={subIdx}>
                         <a
-                          href={`#${submenu.toLowerCase().replace(/\s+/g, "-")}`}
+                          href={`#${typeof submenu === 'object' 
+                            ? submenu.name.toLowerCase().replace(/\s+/g, "-")
+                            : submenu.toLowerCase().replace(/\s+/g, "-")
+                          }`}
                           className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                         >
-                          {submenu}
+                          {typeof submenu === 'object' ? submenu.name : submenu}
                         </a>
                       </li>
                     ))}
@@ -206,12 +231,20 @@ export default function Header() {
         {/* Title and Description */}
         <div
           className={`absolute left-10  mt-[11rem]  lg:w-[40%] w-[60%] h-[17rem] inset-0 flex flex-col justify-center items-center  text-center  transition-all duration-1000 transform ${
-            isAnimating ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+            isAnimating
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-full opacity-0"
           }`}
         >
-          <h1 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#D8AC09]">{images[currentImage].title}</h1>
-          <h2 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#414040]">{images[currentImage].highlight}</h2>
-          <p className="lg:text-xl text-lg font-semibold text-gray-700">{images[currentImage].description}</p>
+          <h1 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#D8AC09]">
+            {images[currentImage].title}
+          </h1>
+          <h2 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#414040]">
+            {images[currentImage].highlight}
+          </h2>
+          <p className="lg:text-xl text-lg font-semibold text-gray-700">
+            {images[currentImage].description}
+          </p>
         </div>
       </div>
     </header>
