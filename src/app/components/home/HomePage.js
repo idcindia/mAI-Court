@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Features from "./BigImage";
+import Testimonial from "../common/Testimonial";
 
 const ImageSlider = () => {
   
@@ -66,6 +67,8 @@ const ImageSlider = () => {
     <div>
     <Features/>
     </div>
+    {/* testionials */}
+    <Testimonial/>
    </div>
   );
 };
