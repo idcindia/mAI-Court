@@ -193,7 +193,7 @@ export default function Header() {
 
       {/* Background Image and Title Section */}
       <div
-        className={`relative w-full h-[600px]  bg-cover  bg-no-repeat bg-center transition-all duration-1000 ${
+        className={`relative w-full h-[600px] qshadow-[0px_10px_20px_5px_#a0aec0] bg-cover  bg-no-repeat bg-center transition-all duration-1000 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         style={{
