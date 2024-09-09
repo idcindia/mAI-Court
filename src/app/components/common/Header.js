@@ -11,19 +11,19 @@ export default function Header() {
 
   const images = [
     {
-      src: "/Assests/web1.jpg",
-      title: "Your Legal Companion",
-      description: "Powered by AI",
+      src: "/Assests/newlaw.jpeg",
+      title: "Your Legal Companion ",
+      description: "Your Legal Companion simplifies legal complexities with AI-powered solutions, providing personalized guidance and efficient support for your needs.",
     },
     {
       src: "/Assests/web2.jpg",
       title:"Justice prevails through",
-      description: "righteousness alone.",
+      description: "Justice thrives when righteousness leads, ensuring fairness, truth, and integrity in every action, fostering a just society.",
     },
     {
       src: "/Assests/web3.jpg",
-      title:"।। धर्मेणैव जयते न्यायः।।"
-      //description: "Pushing the boundaries of knowledge",
+      title:"।। धर्मेणैव जयते न्यायः।।",
+      description: "Exploring new horizons through innovation and wisdom, committed to advancing knowledge with integrity and purpose for all.",
     },
   ];
 
@@ -50,7 +50,7 @@ export default function Header() {
     },
     {
       name: "Join Us",
-      submenus: ["LogIn", "SignUp", "Premium Services"],
+      submenus: ["LogIn", "SignUp"],
     },
   ];
 
@@ -202,12 +202,12 @@ export default function Header() {
       >
         {/* Title and Description */}
         <div
-          className={`absolute left-10 inset-0 flex flex-col justify-center text-red-500 transition-all duration-1000 transform ${
+          className={`absolute left-10  mt-[11rem]  w-[40%] h-[17rem] inset-0 flex flex-col justify-center items-center  text-center  transition-all duration-1000 transform ${
             isAnimating ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
-          <h1 className="text-5xl font-bold mb-4">{images[currentImage].title}</h1>
-          <p className="text-lg">{images[currentImage].description}</p>
+          <h1 className="text-5xl font-bold mb-4 text-[#D8AC09]">{images[currentImage].title}</h1>
+          <p className="text-xl font-semibold text-gray-700">{images[currentImage].description}</p>
         </div>
       </div>
     </header>
