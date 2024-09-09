@@ -7,6 +7,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
+  const [activeSubmenu, setActiveSubmenu] = useState(null); // State to manage active submenus in mobile view
 
   const images = [
     {
@@ -23,6 +24,33 @@ export default function Header() {
       src: "/Assests/web3.jpg",
       title: "Innovation and Research",
       description: "Pushing the boundaries of knowledge",
+    },
+  ];
+
+  const navItems = [
+    {
+      name: "Legal Aid",
+      submenus: ["Court Cases", "Legal Advice", "Consultations", "Reports"],
+    },
+    {
+      name: "Partners",
+      submenus: ["Corporate Partners", "NGOs", "Collaborations", "Government"],
+    },
+    {
+      name: "Resources",
+      submenus: ["Legal Articles", "Guides", "Templates", "E-Books"],
+    },
+    {
+      name: "Blogs",
+      submenus: ["Latest Posts", "Trending", "Categories", "Archives"],
+    },
+    {
+      name: "About Us",
+      submenus: ["Our Mission", "Our Team", "Careers", "Contact Us"],
+    },
+    {
+      name: "Contact Us",
+      submenus: ["Support", "FAQ", "Customer Service", "Reach Us"],
     },
   ];
 
@@ -47,15 +75,19 @@ export default function Header() {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const toggleSubmenu = (idx) => {
+    setActiveSubmenu(activeSubmenu === idx ? null : idx); // Toggle the active submenu
+  };
+
   return (
     <header>
       {/* Navbar Section */}
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-lg h-16" : "bg-transparent h-20"
+          scrolled ? "bg-white shadow-lg h-[5.5rem]" : "bg-transparent h-20"
         }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="container mx-auto flex items-center justify-between px-6 py-1">
           {/* Logo */}
           <div className="font-bold text-2xl text-white">
             <img
@@ -74,56 +106,34 @@ export default function Header() {
               />
             ) : (
               <AiOutlineMenu
-                className="text-black  text-3xl cursor-pointer"
+                className="text-black text-3xl cursor-pointer"
                 onClick={() => setIsMenuOpen(true)}
               />
             )}
           </div>
 
           {/* Navbar Links for Desktop */}
-          <ul className="hidden md:flex space-x-8 text-black">
-            {[
-              "Legal Aid",
-              "Partners",
-              "Resources",
-              "Blogs",
-              "About Us",
-              "Contact Us",
-            ].map((item, idx) => (
+          <ul className="hidden md:flex space-x-1 text-black">
+            {navItems.map((item, idx) => (
               <li key={idx} className="relative group">
                 <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  href={`#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                   className="hover:text-white hover:bg-slate-500 px-4 py-2 rounded-lg text-lg font-semibold transition"
                 >
-                  {item}
+                  {item.name}
                 </a>
 
-                {/* Dropdown Menu */}
-                <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 w-48 z-50">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                  >
-                    Submenu 1
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                  >
-                    Submenu 2
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                  >
-                    Submenu 3
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-200"
-                  >
-                    Submenu 4
-                  </a>
+                {/* Dropdown Menu for Desktop */}
+                <div className="absolute hidden group-hover:block lg:bg-white bg-gray-600 shadow-lg rounded-lg mt-2 w-48 z-50">
+                  {item.submenus.map((submenu, subIdx) => (
+                    <a
+                      key={subIdx}
+                      href={`#${submenu.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="block px-4 py-2 lg:text-gray-700  text--300  hover:bg-gray-200"
+                    >
+                      {submenu}
+                    </a>
+                  ))}
                 </div>
               </li>
             ))}
@@ -144,21 +154,31 @@ export default function Header() {
           } md:hidden bg-white text-center absolute w-full z-50 py-6`}
         >
           <ul className="space-y-6 text-lg font-semibold">
-            {[
-              "Legal Aid",
-              "Partners",
-              "Resources",
-              "Blogs",
-              "About Us",
-              "Contact Us",
-            ].map((item, idx) => (
+            {navItems.map((item, idx) => (
               <li key={idx}>
                 <a
-                  href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                  href={`#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                   className="block text-gray-700 hover:text-yellow-600 transition"
+                  onClick={() => toggleSubmenu(idx)} // Toggle the submenu in mobile view
                 >
-                  {item}
+                  {item.name}
                 </a>
+
+                {/* Dropdown Submenu for Mobile */}
+                {activeSubmenu === idx && (
+                  <ul className="mt-2 space-y-2 bg-gray-300">
+                    {item.submenus.map((submenu, subIdx) => (
+                      <li key={subIdx}>
+                        <a
+                          href={`#${submenu.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                        >
+                          {submenu}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
 
