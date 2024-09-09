@@ -193,7 +193,7 @@ export default function Header() {
 
       {/* Background Image and Title Section */}
       <div
-        className={`relative w-full h-[600px] bg-cover bg-center transition-all duration-1000 ${
+        className={`relative w-full h-[600px]  bg-cover  bg-no-repeat bg-center transition-all duration-1000 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         style={{
@@ -202,12 +202,12 @@ export default function Header() {
       >
         {/* Title and Description */}
         <div
-          className={`absolute left-10  mt-[11rem]  w-[40%] h-[17rem] inset-0 flex flex-col justify-center items-center  text-center  transition-all duration-1000 transform ${
+          className={`absolute left-10  mt-[11rem]  lg:w-[40%] w-[60%] h-[17rem] inset-0 flex flex-col justify-center items-center  text-center  transition-all duration-1000 transform ${
             isAnimating ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
           }`}
         >
-          <h1 className="text-5xl font-bold mb-4 text-[#D8AC09]">{images[currentImage].title}</h1>
-          <p className="text-xl font-semibold text-gray-700">{images[currentImage].description}</p>
+          <h1 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#D8AC09]">{images[currentImage].title}</h1>
+          <p className="lg:text-xl text-lg font-semibold text-gray-700">{images[currentImage].description}</p>
         </div>
       </div>
     </header>
