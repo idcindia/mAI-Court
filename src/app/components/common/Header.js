@@ -46,11 +46,11 @@ export default function Header() {
     },
     {
       name: "About Us",
-      submenus: ["Our Mission", "Our Team", "Careers", "Contact Us"],
+      submenus: ["Our Mission", "Our Team", "Careers", "Contact Us", "Support", "FAQ", "Customer Service", "Reach Us"],
     },
     {
-      name: "Contact Us",
-      submenus: ["Support", "FAQ", "Customer Service", "Reach Us"],
+      name: "Join Us",
+      submenus: ["LogIn", "SignUp", "Premium Services"],
     },
   ];
 
@@ -139,7 +139,7 @@ export default function Header() {
             ))}
 
             {/* Premium Button */}
-            <li className="ml-5">
+            <li className="ml-5 -mt-[6px]">
               <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-lg">
                 Premium Services
               </button>
