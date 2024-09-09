@@ -8,9 +8,9 @@ const ImageSlider = () => {
   
   const sections = [
     { title: "Tax matters", icon: "🏛️" },
-    { title: "GST cases", icon: "⚖️" },
-    { title: "Cyber courts", icon: "💻" },
-    { title: "Cyber courts", icon: "⚖️" },
+    { title: "Right to Information", icon: "⚖️" },
+    { title: "Case Status", icon: "💻" },
+    { title: "Judgments", icon: "⚖️" },
     { title: "Bank and finance", icon: "💼" },
   ];
 
