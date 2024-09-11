@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         {/* <link rel="stylesheet" href="/assets/css/main.scss" /> */}
         <title>Your Website</title>
       </head>
-      <body>
+      <body className="">
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <ToastContainer />

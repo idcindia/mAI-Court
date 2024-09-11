@@ -74,7 +74,7 @@ const SignupForm = ({ userType }) => {
 const LoginPage = () => {
   return (
     <div className="h-[45rem] flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/Assests/web4.jpg')" }}>
-      <div className="bg-black bg-opacity-50 lg:w-[50%] p-8 rounded-lg shadow-lg backdrop-blur-md">
+      <div className="bg-black bg-opacity-50 lg:w-[40%] p-8 rounded-lg shadow-lg backdrop-blur-md">
         <h2 className="text-3xl font-bold mb-4 text-white text-center">Login</h2>
         <form className="space-y-4">
           {/* Form fields */}

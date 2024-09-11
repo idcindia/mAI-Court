@@ -65,7 +65,7 @@
 
         return (
             <nav
-                className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-lg h-[5.5rem]" : "bg-transparent h-20"
+                className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white opacity-95 shadow-lg h-[5.5rem]" : "bg-transparent h-20"
                     }`}
             >
                 <div className="container mx-auto flex items-center justify-between px-6 py-1">

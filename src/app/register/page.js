@@ -58,7 +58,7 @@ export default function RegisterPage() {
 
   return (
     <div
-      className="relative h-[48rem] w-screen flex items-center justify-center bg-cover bg-center"
+      className="relative h-[48rem] w-[100%] flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url('/Assests/ntwater.jpeg')` }}
     >
       {/* Dark overlay */}
@@ -67,7 +67,7 @@ export default function RegisterPage() {
       <div className="relative lg:w-[900px] mt-20  bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
         {/* Image section with scales icon */}
         <div className="w-1/2 flex items-center justify-center p-8 border-r-2 border-gray-500">
-          <p className="absolute top-20 text-4xl text-yellow-600 font-semibold">
+          <p className="absolute top-[10rem] text-4xl text-yellow-600 font-semibold">
             धर्मोऽपि जायते न्यायः
           </p>
           <div className="flex mt-20 items-center justify-center">
