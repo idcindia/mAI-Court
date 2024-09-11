@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Features from "./BigImage";
 import Testimonial from "../common/Testimonial";
+import Header from "../common/Header";
 
 const ImageSlider = () => {
   
@@ -17,6 +18,9 @@ const ImageSlider = () => {
 
   return (
    <div className="maincontainer flex flex-col w-screen  items-center justify-center ">
+   <div>
+    <Header/>
+   </div>
      <div className="relative w-80 md:w-96 flex flex-row  mt-10">
         <input
           type="text"

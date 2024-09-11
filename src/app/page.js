@@ -6,9 +6,9 @@ import ImageSlider from "./components/home/HomePage";
 export default function Home() {
   return (
     <div className="overflow-hidden">
-      <Header />
+      {/* <Header /> */}
       <ImageSlider />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
