@@ -6,6 +6,7 @@ export default function RegisterPage() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
+    phone: "", // New phone number field
     password: "",
     confirmPassword: "",
   });
@@ -27,7 +28,7 @@ export default function RegisterPage() {
     setError("");
     setSuccess("");
 
-    const { username, email, password, confirmPassword } = formData;
+    const { username, email, phone, password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
@@ -40,7 +41,7 @@ export default function RegisterPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ username, email, phone, password }),
       });
 
       const data = await res.json();
@@ -57,26 +58,25 @@ export default function RegisterPage() {
 
   return (
     <div
-      className="relative h-screen w-screen flex items-center justify-center bg-cover bg-center"
+      className="relative h-[48rem] w-screen flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url('/Assests/ntwater.jpeg')` }}
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      <div className="relative lg:w-[900px] mt-10 h-[500px] bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
+      <div className="relative lg:w-[900px] mt-20  bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
         {/* Image section with scales icon */}
         <div className="w-1/2 flex items-center justify-center p-8 border-r-2 border-gray-500">
-        <p className="absolute top-20 text-4xl text-yellow-600 font-semibold">
+          <p className="absolute top-20 text-4xl text-yellow-600 font-semibold">
             धर्मोऽपि जायते न्यायः
           </p>
-          <div className=" flex mt-20 items-center justify-center">
-          <img
-            src="/Assests/scales.png" 
-            alt="Scales of Justice"
-            className=" lg:w-[16rem] "
-          />
+          <div className="flex mt-20 items-center justify-center">
+            <img
+              src="/Assests/scales.png" 
+              alt="Scales of Justice"
+              className="lg:w-[16rem]"
+            />
           </div>
-        
         </div>
 
         {/* Form section */}
@@ -113,6 +113,22 @@ export default function RegisterPage() {
                 type="email"
                 name="email"
                 value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-gray-400"
+              >
+                Phone Number:
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
                 required
                 className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -172,31 +188,43 @@ export default function RegisterPage() {
 
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-indigo-700"
+              className="w-full bg-yellow-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-yellow-700"
             >
               Create Account
             </button>
           </form>
 
           {/* Social signup buttons */}
-          {/* <div className="mt-4 flex items-center justify-between">
-            <button className="flex items-center w-1/2 justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm">
-              <img src="/Assests/google-icon.png" alt="Google" className="w-5 h-5 mr-2" />
-              Signup with Google
+          <div className="mt-4">
+            <button className="flex items-center w-full justify-center py-2 px-4 border border-gray-300 text-white hover:bg-slate-700 rounded-md shadow-sm">
+              {/* Google SVG Icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 48 48"
+                className="w-5 h-5 mr-2"
+              >
+                <path
+                  fill="#FFC107"
+                  d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+                ></path>
+                <path
+                  fill="#FF3D00"
+                  d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+                ></path>
+                <path
+                  fill="#4CAF50"
+                  d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+                ></path>
+                <path
+                  fill="#1976D2"
+                  d="M43.611,20.083H42V20H24v8h11.303c-0.746,2.105-2.024,3.91-3.685,5.236c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.943,38.76,44,33.416,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+                ></path>
+              </svg>
+              Sign in with Google
             </button>
-            <button className="flex items-center w-1/2 justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm">
-              <img src="/Assests/facebook-icon.png" alt="Facebook" className="w-5 h-5 mr-2" />
-              Signup with Facebook
-            </button>
-          </div> */}
-
-          {/* Login link */}
-          <p className="text-center mt-2 text-gray-400">
-            Already have an account?{" "}
-            <a href="/login" className="text-blue-500">
-              Log in
-            </a>
-          </p>
+          </div>
         </div>
       </div>
     </div>

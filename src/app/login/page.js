@@ -2,8 +2,8 @@
 
 const LoginPage = () => {
   return (
-    <div className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/Assests/web1.jpg')" }}>
-      <div className="bg-black bg-opacity-10 p-8 rounded-lg shadow-lg backdrop-blur-md mt-20">
+    <div className="h-[45rem] flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/Assests/web4.jpg')" }}>
+      <div className="bg-black bg-opacity-50 lg:w-[50%] p-8 rounded-lg shadow-lg backdrop-blur-md">
         <h2 className="text-3xl font-bold mb-4 text-white text-center">Login</h2>
         <form className="space-y-4">
           <div>
@@ -17,17 +17,7 @@ const LoginPage = () => {
               className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-white outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
-          <div>
-            <label className="block text-white text-sm font-bold mb-2" htmlFor="password">
-              Phone Numer 
-            </label>
-            <input
-              type="phone number"
-              id="phone numer"
-              placeholder="phone number"
-              className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-white outline-none focus:ring-2 focus:ring-blue-400"
-            />
-          </div>
+          
           <div>
             <label className="block text-white text-sm font-bold mb-2" htmlFor="password">
               Password
@@ -43,11 +33,11 @@ const LoginPage = () => {
             <label className="text-sm text-white">
               <input type="checkbox" className="mr-2" /> Remember me
             </label>
-            <a href="#" className="text-sm text-blue-400">Forgot Password?</a>
+            <a href="#" className="text-sm text-yellow-500">Forgot Password?</a>
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md text-lg transition duration-300"
+            className="w-full py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md text-lg transition duration-300"
           >
             Sign in
           </button>
