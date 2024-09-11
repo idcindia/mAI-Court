@@ -6,11 +6,16 @@ const apiResponse = require('../../helper/apiResponse');
 
 exports.register = async (req, res) => {
     try {
-        const { name, email, phoneNumber, password, role , legalProfessional, corporateClient, partnerInstitution, admin} = req.body;
+        const { name, email, phoneNumber, password, confirmPassword, role, legalProfessional, corporateClient, partnerInstitution, admin } = req.body;
+
+        // Check if password and confirmPassword match
+        if (password !== confirmPassword) {
+            return apiResponse.ErrorResponse(res, "Passwords do not match");
+        }
 
         let user = await User.findOne({ email });
         if (user) {
-            return apiResponse.ErrorResponse(res, 'User already exists');
+            return apiResponse.ErrorResponse(res, "User already exists");
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -22,18 +27,19 @@ exports.register = async (req, res) => {
             phoneNumber,
             password: hashedPassword,
             role,
-            accessLevel: role !== 'admin' ? 'basic' : 'premium',
+            accessLevel: role !== "admin" ? "basic" : "premium",
             legalProfessional,
             corporateClient,
             partnerInstitution,
             admin
         });
+
         await user.save();
-        return apiResponse.successResponseWithData(res, 'User registered successfully', user);
+        return apiResponse.successResponseWithData(res, "User registered successfully", user);
 
     } catch (err) {
         console.log(err);
-        return apiResponse.ErrorResponse(res, 'Registration failed');
+        return apiResponse.ErrorResponse(res, "Registration failed");
     }
 };
 

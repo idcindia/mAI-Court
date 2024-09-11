@@ -36,25 +36,14 @@ const userSchema = new Schema(
       type: String,
       enum: ["basic", "premium"],
       default: "basic",
-      required: function () {
-        return this.role !== "administrator";
-      },
     },
-    // languagePreference:{
-    //   type:String,
-
-    // },
-
     legalProfessional: {
       bio: String,
-      categories: [String],
       experience: { type: Number, min: 0 },
-      specialization: String,
       verified: { type: Boolean, default: false },
     },
     corporateClient: {
       companyName: String,
-      legalNeeds: [String],
       gstNumber: { type: String, required: true, unique: true },
     },
     partnerInstitution: {
@@ -63,15 +52,6 @@ const userSchema = new Schema(
         type: String,
         enum: ["university", "NGO", "lawFirm", "other"],
       },
-      collaborationScope: String,
-    },
-    admin: {
-      permissions: [
-        {
-          type: String,
-          enum: ["manageUsers", "viewReports", "editContent", "moderate"],
-        },
-      ],
     },
   },
   {
