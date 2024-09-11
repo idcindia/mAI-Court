@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: true, // `once` set to true for animating elements only once
+      once: true,
     });
   }, []);
 
@@ -29,9 +29,8 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Uncomment and ensure correct path if required */}
         {/* <link rel="stylesheet" href="/assets/css/main.scss" /> */}
-        <title>Your Website</title>
+        <title>mAI Court</title>
       </head>
       <body className="">
         <Provider store={store}>

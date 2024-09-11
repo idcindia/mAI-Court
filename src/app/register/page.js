@@ -1,14 +1,21 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
-    phone: "",
+    phoneNumber: "",
     password: "",
     confirmPassword: "",
-    role: "general", // Default role
+    role: "general",
+    bio: "", // For legalProfessional
+    experience: "", // For legalProfessional
+    companyName: "", // For corporateClient
+    gstNumber: "", // For corporateClient
+    institutionName: "", // For partnerInstitution
+    institutionType: "", // For partnerInstitution
   });
 
   const [error, setError] = useState("");
@@ -28,35 +35,96 @@ export default function RegisterPage() {
     setError("");
     setSuccess("");
 
-    const { username, email, phone, password, confirmPassword, role } = formData;
+    const {
+      name,
+      email,
+      phoneNumber,
+      password,
+      confirmPassword,
+      role,
+      bio,
+      experience,
+      companyName,
+      gstNumber,
+      institutionName,
+      institutionType,
+    } = formData;
 
     if (password !== confirmPassword) {
       setError("Passwords do not match!");
       return;
     }
 
-   
+    try {
+      const response = await fetch("http://localhost:5000/api/user/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phoneNumber,
+          password,
+          confirmPassword,
+          role,
+          ...(role === "legalProfessional" && { bio, experience }),
+          ...(role === "corporateClient" && { companyName, gstNumber }),
+          ...(role === "partnerInstitution" && { institutionName, institutionType }),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess("Account created successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          password: "",
+          confirmPassword: "",
+          role: "general",
+          bio: "",
+          experience: "",
+          companyName: "",
+          gstNumber: "",
+          institutionName: "",
+          institutionType: "",
+        });
+      } else {
+        setError(data.message || "Failed to register user.");
+      }
+    } catch (err) {
+      console.log(err, "errrrrrrrrrrr")
+      setError("Something went wrong! Please try again later.");
+    }
   };
 
   return (
     <div
-      className="relative h-[52rem] w-[100%] flex items-center justify-center bg-cover bg-center"
+      className="relative h-[45rem] w-[100%] flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: `url('/Assests/ntwater.jpeg')` }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div className="relative lg:w-[900px] mt-20 bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
-        
         <div className="w-1/2 flex items-center justify-center p-8 border-r-2 border-gray-500">
           <p className="absolute top-[10rem] text-4xl text-yellow-600 font-semibold">
             धर्मोऽपि जायते न्यायः
           </p>
           <div className="flex mt-20 items-center justify-center">
-            <img src="/Assests/scales.png" alt="Scales of Justice" className="lg:w-[16rem]" />
+            <Image
+              src="/Assests/scales.png"
+              alt="Scales of Justice"
+              width={256}
+              height={256} // Adjusted width and height
+              className="lg:w-[16rem]"
+            />
           </div>
         </div>
 
-        {/* Form Section */}
+
         <div className="w-1/2 p-8 flex flex-col justify-center">
           <h1 className="text-2xl font-bold text-center text-white">Create Account</h1>
           {error && <p className="text-red-500 text-center">{error}</p>}
@@ -65,13 +133,13 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name Input */}
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-400">
-                Full Name:
+              <label htmlFor="name" className="block text-sm font-medium text-gray-400">
+                Name:
               </label>
               <input
                 type="text"
-                name="username"
-                value={formData.username}
+                name="name"
+                value={formData.name}
                 placeholder="Enter your full name"
                 onChange={handleChange}
                 required
@@ -79,7 +147,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Email Input */}
+        
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-400">
                 Email:
@@ -95,15 +163,14 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Phone Number Input */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-400">
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-400">
                 Phone Number:
               </label>
               <input
                 type="tel"
-                name="phone"
-                value={formData.phone}
+                name="phoneNumber"
+                value={formData.phoneNumber}
                 placeholder="Enter your phone number"
                 onChange={handleChange}
                 required
@@ -111,7 +178,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Password Input */}
+        
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-400">
                 Password:
@@ -127,7 +194,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Confirm Password Input */}
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-400">
                 Confirm Password:
@@ -143,7 +209,6 @@ export default function RegisterPage() {
               />
             </div>
 
-            {/* Role Selection Dropdown */}
             <div>
               <label htmlFor="role" className="block text-sm font-medium text-gray-400">
                 Role:
@@ -158,36 +223,118 @@ export default function RegisterPage() {
                 <option value="legalProfessional">Legal Professional</option>
                 <option value="corporateClient">Corporate Client</option>
                 <option value="partnerInstitution">Partner Institution</option>
-               
               </select>
             </div>
 
-            {/* Terms and Conditions */}
-            <div className="flex items-center">
-              <input type="checkbox" id="terms" required className="mr-2" />
-              <label htmlFor="terms" className="text-sm text-gray-400">
-                I have read and agree to the{" "}
-                <a href="/privacy-policy" className="text-blue-500">
-                  Terms of Service and Privacy Policy
-                </a>
-              </label>
+            {formData.role === "legalProfessional" && (
+              <>
+                <div>
+                  <label htmlFor="bio" className="block text-sm font-medium text-gray-400">
+                    Bio:
+                  </label>
+                  <input
+                    type="text"
+                    name="bio"
+                    value={formData.bio}
+                    placeholder="Enter your bio"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="experience" className="block text-sm font-medium text-gray-400">
+                    Experience (years):
+                  </label>
+                  <input
+                    type="number"
+                    name="experience"
+                    value={formData.experience}
+                    placeholder="Enter your experience"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+              </>
+            )}
+
+            {formData.role === "corporateClient" && (
+              <>
+                <div>
+                  <label htmlFor="companyName" className="block text-sm font-medium text-gray-400">
+                    Company Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    placeholder="Enter your company name"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="gstNumber" className="block text-sm font-medium text-gray-400">
+                    GST Number:
+                  </label>
+                  <input
+                    type="text"
+                    name="gstNumber"
+                    value={formData.gstNumber}
+                    placeholder="Enter your GST number"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+              </>
+            )}
+
+  
+            {formData.role === "partnerInstitution" && (
+              <>
+                <div>
+                  <label htmlFor="institutionName" className="block text-sm font-medium text-gray-400">
+                    Institution Name:
+                  </label>
+                  <input
+                    type="text"
+                    name="institutionName"
+                    value={formData.institutionName}
+                    placeholder="Enter your institution name"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="institutionType" className="block text-sm font-medium text-gray-400">
+                    Institution Type:
+                  </label>
+                  <input
+                    type="text"
+                    name="institutionType"
+                    value={formData.institutionType}
+                    placeholder="Enter the type of your institution"
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                  />
+                </div>
+              </>
+            )}
+
+            <div>
+              <button
+                type="submit"
+                className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-md shadow-lg"
+              >
+                Register
+              </button>
             </div>
-
-            {/* Submit Button */}
-            <button type="submit" className="w-full bg-yellow-600 text-white py-2 px-4 rounded-md shadow-md hover:bg-yellow-700">
-              Create Account
-            </button>
           </form>
-
-          {/* Social Signup Buttons */}
-          <div className="mt-4">
-            <button className="flex items-center w-full justify-center py-2 px-4 border border-gray-300 text-white hover:bg-slate-700 rounded-md shadow-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" className="w-5 h-5 mr-2">
-                {/* Google SVG Icon */}
-              </svg>
-              Sign in with Google
-            </button>
-          </div>
         </div>
       </div>
     </div>

@@ -44,7 +44,7 @@ const userSchema = new Schema(
     },
     corporateClient: {
       companyName: String,
-      gstNumber: { type: String, required: true, unique: true },
+      gstNumber: { type: String, unique: true },
     },
     partnerInstitution: {
       institutionName: String,

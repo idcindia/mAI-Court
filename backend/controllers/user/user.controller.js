@@ -6,42 +6,76 @@ const apiResponse = require('../../helper/apiResponse');
 
 exports.register = async (req, res) => {
     try {
-        const { name, email, phoneNumber, password, confirmPassword, role, legalProfessional, corporateClient, partnerInstitution, admin } = req.body;
+        const { 
+            name, 
+            email, 
+            phoneNumber, 
+            password, 
+            confirmPassword, 
+            role, 
+            bio, 
+            experience, 
+            companyName, 
+            gstNumber, 
+            institutionName, 
+            institutionType 
+        } = req.body;
 
-        // Check if password and confirmPassword match
+        // Check if passwords match
         if (password !== confirmPassword) {
             return apiResponse.ErrorResponse(res, "Passwords do not match");
         }
 
+        // Check if user already exists
         let user = await User.findOne({ email });
         if (user) {
             return apiResponse.ErrorResponse(res, "User already exists");
         }
 
+        // Hash password
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        user = new User({
+        // Create a new user object
+        let newUser = {
             name,
             email,
             phoneNumber,
             password: hashedPassword,
             role,
             accessLevel: role !== "admin" ? "basic" : "premium",
-            legalProfessional,
-            corporateClient,
-            partnerInstitution,
-            admin
-        });
+        };
 
+        // Conditionally add role-specific fields
+        if (role === "legalProfessional") {
+            newUser.legalProfessional = {
+                bio,
+                experience,
+            };
+        } else if (role === "corporateClient") {
+            newUser.corporateClient = {
+                companyName,
+                gstNumber,
+            };
+        } else if (role === "partnerInstitution") {
+            newUser.partnerInstitution = {
+                institutionName,
+                institutionType,
+            };
+        }
+
+        // Create and save the user
+        user = new User(newUser);
         await user.save();
+
         return apiResponse.successResponseWithData(res, "User registered successfully", user);
 
     } catch (err) {
-        console.log(err);
+        console.error("Registration error:", err);
         return apiResponse.ErrorResponse(res, "Registration failed");
     }
 };
+
 
 
 exports.login = async (req, res) => {
