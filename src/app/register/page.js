@@ -63,7 +63,7 @@ export default function RegisterPage() {
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      <div className="relative lg:w-[900px] h-[500px] bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
+      <div className="relative lg:w-[900px] mt-10 h-[500px] bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
         {/* Image section with scales icon */}
         <div className="w-1/2 flex items-center justify-center p-8 border-r-2 border-gray-500">
         <p className="absolute top-20 text-4xl text-yellow-600 font-semibold">
