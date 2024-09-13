@@ -1,13 +1,65 @@
 "use client";
-
 import Link from "next/link";
+import { useState } from "react";
+import IsLoadingHOC from "../components/common/isLoadingHOC";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/navigation";
 
-const LoginPage = () => {
+
+const LoginPage = (props) => {
+  const { setLoading } = props;
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    const { email, password } = formData;
+
+    try {
+      const response = await fetch("http://localhost:5000/api/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      setLoading(false);
+
+      if (response.ok) {
+        toast.success("Login successful!");
+        router.push("/"); 
+      } else {
+        toast.error(data.message || "Invalid credentials");
+      }
+    } catch (err) {
+      setLoading(false);
+      toast.error("Something went wrong! Please try again later.");
+    }
+  };
+
   return (
     <div className="h-[45rem] flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/Assests/web4.jpg')" }}>
       <div className="bg-black bg-opacity-50 lg:w-[40%] p-8 rounded-lg shadow-lg backdrop-blur-md">
         <h2 className="text-3xl font-bold mb-4 text-white text-center">Login</h2>
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Form fields */}
           <div>
             <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
@@ -17,7 +69,9 @@ const LoginPage = () => {
               type="email"
               id="email"
               placeholder="username@gmail.com"
-              className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-white outline-none focus:ring-2 focus:ring-blue-400"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-black outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -29,7 +83,9 @@ const LoginPage = () => {
               type="password"
               id="password"
               placeholder="Password"
-              className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-white outline-none focus:ring-2 focus:ring-blue-400"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-md bg-slate-5 bg-opacity-40 text-black outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -89,4 +145,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default IsLoadingHOC(LoginPage);

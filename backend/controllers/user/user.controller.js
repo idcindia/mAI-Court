@@ -53,16 +53,14 @@ exports.register = async (req, res) => {
                 experience,
             };
         } else if (role === "corporateClient") {
-            newUser.corporateClient = {
-                companyName,
-                gstNumber,
-            };
+            newUser.corporateClient = { companyName, gstNumber: gstNumber || undefined };
         } else if (role === "partnerInstitution") {
             newUser.partnerInstitution = {
                 institutionName,
                 institutionType,
             };
         }
+        console.log("User Data Being Saved:", newUser);
 
         // Create and save the user
         user = new User(newUser);
