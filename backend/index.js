@@ -11,7 +11,7 @@ const port = 5000;
 
 database();
 
-app.use(cors());
+app.use(cors("*"));
 app.use(bodyParser.json());
 
 
