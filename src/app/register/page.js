@@ -1,8 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import IsLoadingHOC from "../components/common/isLoadingHOC";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/navigation";
 
-export default function RegisterPage() {
+function RegisterPage(props) {
+  const { setLoading } = props;
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,18 +16,17 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
     role: "general",
-    bio: "", // For legalProfessional
-    experience: "", // For legalProfessional
-    companyName: "", // For corporateClient
-    gstNumber: "", // For corporateClient
-    institutionName: "", // For partnerInstitution
-    institutionType: "", // For partnerInstitution
+    bio: "",
+    experience: "",
+    companyName: "",
+    gstNumber: "",
+    institutionName: "",
+    institutionType: "", 
   });
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,11 +34,9 @@ export default function RegisterPage() {
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
+    setLoading(true); 
 
     const {
       name,
@@ -51,12 +54,14 @@ export default function RegisterPage() {
     } = formData;
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+      toast.error("Password does not match")
+      setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/user/register/", {
+      const response = await fetch( `${apiUrl}/user/register`, {
+       
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +82,9 @@ export default function RegisterPage() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess("Account created successfully!");
+        setLoading(false);
+        toast.success("Account created successfully!");
+
         setFormData({
           name: "",
           email: "",
@@ -92,12 +99,15 @@ export default function RegisterPage() {
           institutionName: "",
           institutionType: "",
         });
+        router.push("/login"); 
       } else {
-        setError(data.message || "Failed to register user.");
+        setLoading(false);
+        toast.error(data.message || "Failed to register user.");
       }
     } catch (err) {
       console.log(err, "errrrrrrrrrrr")
-      setError("Something went wrong! Please try again later.");
+      setLoading(false);
+      toast.error("Something went wrong! Please try again later.");
     }
   };
 
@@ -111,14 +121,14 @@ export default function RegisterPage() {
       <div className="relative lg:w-[900px] mt-20 bg-black bg-opacity-70 flex rounded-lg overflow-hidden shadow-lg">
         <div className="w-1/2 flex items-center justify-center p-8 border-r-2 border-gray-500">
           <p className="absolute top-[10rem] text-4xl text-yellow-600 font-semibold">
-            धर्मोऽपि जायते न्यायः
+             || धर्मोऽपि जायते न्यायः ||
           </p>
           <div className="flex mt-20 items-center justify-center">
             <Image
               src="/Assests/scales.png"
               alt="Scales of Justice"
               width={256}
-              height={256} // Adjusted width and height
+              height={256} 
               className="lg:w-[16rem]"
             />
           </div>
@@ -127,8 +137,6 @@ export default function RegisterPage() {
 
         <div className="w-1/2 p-8 flex flex-col justify-center">
           <h1 className="text-2xl font-bold text-center text-white">Create Account</h1>
-          {error && <p className="text-red-500 text-center">{error}</p>}
-          {success && <p className="text-green-500 text-center">{success}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Full Name Input */}
@@ -340,3 +348,6 @@ export default function RegisterPage() {
     </div>
   );
 }
+
+
+export default IsLoadingHOC(RegisterPage);
