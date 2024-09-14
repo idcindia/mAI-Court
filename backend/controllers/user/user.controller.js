@@ -113,3 +113,92 @@ exports.login = async (req, res) => {
         return apiResponse.ErrorResponse(res, 'Login failed');
     }
 };
+
+
+exports.getUserDetails = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+        if (!user) {
+            return apiResponse.ErrorResponse(res, 'User not found');
+        }
+        return apiResponse.successResponseWithData(res, 'User details fetched successfully', user);
+    } catch (err) {
+        console.error('Error fetching user details:', err);
+        return apiResponse.ErrorResponse(res, 'Error fetching user details');
+    }
+};
+
+
+
+exports.updateUserProfile = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const updates = req.body;
+
+        if (updates.role === 'legalProfessional') {
+            updates.legalProfessional = {
+                bio: updates.bio,
+                experience: updates.experience
+            };
+        } else if (updates.role === 'corporateClient') {
+            updates.corporateClient = { companyName: updates.companyName, gstNumber: updates.gstNumber };
+        } else if (updates.role === 'partnerInstitution') {
+            updates.partnerInstitution = { institutionName: updates.institutionName, institutionType: updates.institutionType };
+        }
+
+        const user = await User.findByIdAndUpdate(userId, updates, { new: true });
+        if (!user) {
+            return apiResponse.ErrorResponse(res, 'User not found');
+        }
+        return apiResponse.successResponseWithData(res, 'User profile updated successfully', user);
+    } catch (err) {
+        console.error('Error updating user profile:', err);
+        return apiResponse.ErrorResponse(res, 'Error updating user profile');
+    }
+};
+
+
+
+exports.deleteUser = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findByIdAndDelete(userId);
+        if (!user) {
+            return apiResponse.notFoundResponse(res, 'User not found');
+        }
+        return apiResponse.successResponse(res, 'User deleted successfully');
+    } catch (err) {
+        console.error('Error deleting user:', err);
+        return apiResponse.ErrorResponse(res, 'Error deleting user');
+    }
+};
+
+
+
+exports.changePassword = async (req, res) => {
+    try {
+        const { userId, oldPassword, newPassword } = req.body;
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return apiResponse.notFoundResponse(res, 'User not found');
+        }
+
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isMatch) {
+            return apiResponse.unauthorizedResponse(res, 'Old password is incorrect');
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        user.password = hashedPassword;
+        await user.save();
+
+        return apiResponse.successResponse(res, 'Password changed successfully');
+    } catch (err) {
+        console.error('Error changing password:', err);
+        return apiResponse.ErrorResponse(res, 'Error changing password');
+    }
+};
