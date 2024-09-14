@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className="flex flex-col items-center ">
       <div className=" flex flex-col items-center text-center">
-        <h1 className="mt-24 w-[15rem]  h-10 bg-yellow-500 text-white text-xl font-semibold pt-2 ">।। धर्मेणैव जयते न्यायः।।
+        <h1 className="mt-24 w-[15rem]  h-10 bg-gradient-to-r from-[#F09819] to-[#7e5b2b] text-white text-xl font-semibold pt-2 ">।। धर्मेणैव जयते न्यायः।।
         </h1>
         <div className="flex lg:flex-row w-[100%] mt-10 gap-10 flex-col  justify-center">
           <div className="w-[45%] ">

@@ -19,7 +19,7 @@ const LearningGridArray = [
     },
     {
       order: 2,
-      heading: "Benifit for Users",
+      heading: "Benefit for Users",
       description:
         "Affordable Access: Legal aid shouldn’t be a luxury. Our freemium model ensures that everyone can access basic legal services for free, with premium options available for more complex needs at just ₹1/day. ",
     },
@@ -31,7 +31,7 @@ const LearningGridArray = [
     },
     {
       order: 4,
-      heading: `Flexible and Accessible"`,
+      heading: `Flexible and Accessible`,
       description:
         "Flexible and accessible services ensure that users can easily adapt to varying needs and access resources without barriers. By providing user-friendly solutions, we create opportunities for people to engage anytime, anywhere, regardless of limitations. ",
     },
