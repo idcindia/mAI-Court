@@ -7,11 +7,19 @@ const entryRoutes = require("./routes/index");
 const bodyParser = require("body-parser");
 
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 database();
+const corsOptions = {
+  origin: [
+    "https://mai-court.vercel.app",  
+    "http://localhost:3000",         
+  ],
+  credentials: true, 
+};
+app.use(cors(corsOptions));
 
-app.use(cors("*"));
+
 app.use(bodyParser.json());
 
 
