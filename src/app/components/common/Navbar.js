@@ -32,12 +32,12 @@ const Navbar = () => {
             submenus: [
               { name: "Our Mission", path: "/about" },
               { name: "Our Vision", path: "/about" },
-              { name: "why mAICourt?", path: "/about#careers" },
+              { name: "why mAICourt?", path: "/about" },
               { name: "Contact Us", path: "/contact" },
-              { name: "Support", path: "/about#support" },
-              { name: "FAQ", path: "/about#faq" },
-              { name: "Customer Service", path: "/about#service" },
-              { name: "Reach Us", path: "/about#reach" },
+              { name: "Support", path: "/contact" },
+              { name: "FAQ", path: "/contact" },
+              { name: "Customer Service", path: "/contact" },
+              { name: "Reach Us", path: "/contact" },
             ],
           },
           
