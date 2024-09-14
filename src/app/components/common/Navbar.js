@@ -27,18 +27,20 @@
             submenus: ["Latest Posts", "Trending", "Categories", "Archives"],
             },
             {
-            name: "About Us",
-            submenus: [
-                "Our Mission",
-                "Our Team",
-                "Careers",
-                "Contact Us",
-                "Support",
-                "FAQ",
-                "Customer Service",
-                "Reach Us",
-            ],
-            },
+                name: "About Us",
+                path: "/about", 
+                submenus: [
+                  { name: "Our Mission", path: "/about" },
+                  { name: "Our Team", path: "/about#team" },
+                  { name: "Careers", path: "/about#careers" },
+                  { name: "Contact Us", path: "/about#contact" },
+                  { name: "Support", path: "/about#support" },
+                  { name: "FAQ", path: "/about#faq" },
+                  { name: "Customer Service", path: "/about#service" },
+                  { name: "Reach Us", path: "/about#reach" },
+                ],
+              },
+              
             {
             name: "Join Us",
             submenus: [
