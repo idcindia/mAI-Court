@@ -13,6 +13,7 @@ const LoginPage = (props) => {
   const { setLoading } = props;
   const router = useRouter();
   const dispatch = useDispatch(); 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const [formData, setFormData] = useState({
     email: "",
@@ -35,7 +36,7 @@ const LoginPage = (props) => {
     const { email, password } = formData;
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/login`, {
+      const response = await fetch(`${apiUrl}/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
