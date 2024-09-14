@@ -7,7 +7,12 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    winston.info(`Process ${process.pid} is connected to DB`);
+    
+    if (process.env.NODE_ENV !== "test") {
+      winston.info(`Process ${process.pid} is connected to DB`);
+    } else {
+      winston.info(`Test environment: Process ${process.pid} is connected to DB`);
+    }
   } catch (err) {
     winston.error("App starting error: " + err.message);
     process.exit(1);
