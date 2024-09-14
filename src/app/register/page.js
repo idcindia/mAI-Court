@@ -24,6 +24,7 @@ function RegisterPage(props) {
     institutionType: "", 
   });
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -59,7 +60,8 @@ function RegisterPage(props) {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/user/register/", {
+      const response = await fetch( `${apiUrl}/user/register`, {
+       
         method: "POST",
         headers: {
           "Content-Type": "application/json",
