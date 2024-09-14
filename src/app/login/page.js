@@ -5,11 +5,14 @@ import IsLoadingHOC from "../components/common/isLoadingHOC";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/navigation";
+import { saveUser, setAccessToken } from '../Redux/Reducers/authSlice'; 
+import { useDispatch } from "react-redux";
 
 
 const LoginPage = (props) => {
   const { setLoading } = props;
   const router = useRouter();
+  const dispatch = useDispatch(); 
 
   const [formData, setFormData] = useState({
     email: "",
@@ -32,7 +35,7 @@ const LoginPage = (props) => {
     const { email, password } = formData;
 
     try {
-      const response = await fetch("http://localhost:5000/api/user/login", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -42,9 +45,13 @@ const LoginPage = (props) => {
 
       const data = await response.json();
       setLoading(false);
+      console.log("Submitting login data to:", process.env.NEXT_PUBLIC_API_URL);
+
 
       if (response.ok) {
         toast.success("Login successful!");
+        dispatch(saveUser(data.user));
+        dispatch(setAccessToken(data.token)); 
         router.push("/"); 
       } else {
         toast.error(data.message || "Invalid credentials");
