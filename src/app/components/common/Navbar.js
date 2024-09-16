@@ -54,15 +54,11 @@ const Navbar = () => {
             ],
         },
         {
-            name: "About Us ▾ ",
+            name: "About ▾ ",
             submenus: [
-                { title: "Our Mission & Vision", path: "/about" },
-                { title: "Why mAICourt?", path: "/about#why-maicourt" },
-                { title: "Contact Us", path: "/contact" },
-                { title: "Support", path: "/contact" },
-                { title: "FAQ", path: "/contact" },
-                { title: "Customer Service", path: "/contact" },
-                { title: "Reach Us", path: "/contact" },
+                { title: "About-us", path: "/about" },
+                { title: "Contact-us", path: "/contact" },
+               
             ],
         },
         {
