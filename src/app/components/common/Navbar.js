@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const navItems = [
         {
-            name: "Legal Aid",
+            name: "Legal Aid ▾",
             path: "/notfound", 
             submenus: [
                 { title: "Court Cases", path: "/notfound/Page" },
@@ -28,7 +28,7 @@ const Navbar = () => {
             ],
         },
         {
-            name: "Partners",
+            name: "Partners ▾",
             path: "/errorpage", // Redirect to the ErrorPage for Partners
             submenus: [
                 { title: "Corporate Partners", path: "/errorpage" },
@@ -38,7 +38,7 @@ const Navbar = () => {
             ],
         },
         {
-            name: "Resources",
+            name: "Resources ▾",
             submenus: [
                 { title: "Legal Articles", path: "/resources/legal-articles" },
                 { title: "Guides", path: "/resources/guides" },
@@ -47,14 +47,14 @@ const Navbar = () => {
             ],
         },
         {
-            name: "Updates",
+            name: "Updates ▾",
             submenus: [
                 { title: "Blogs", path: "/blog" },
                 { title: "Events", path: "/events" },
             ],
         },
         {
-            name: "About Us",
+            name: "About Us ▾ ",
             submenus: [
                 { title: "Our Mission & Vision", path: "/about" },
                 { title: "Why mAICourt?", path: "/about#why-maicourt" },
@@ -66,7 +66,7 @@ const Navbar = () => {
             ],
         },
         {
-            name: "Join Us",
+            name: "Join Us ▾ ",
             submenus: [
                 { title: "LogIn", path: "/login" },
                 { title: "SignUp", path: "/register" },
@@ -94,7 +94,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Navbar Links for Desktop */}
-                <ul className="hidden md:flex space-x-4 text-black">
+                <ul className="hidden md:flex  text-black">
                     {navItems.map((item, idx) => (
                         <li key={idx} className="relative group">
                             <Link href={item.path || "#"} className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200">
@@ -138,7 +138,7 @@ const Navbar = () => {
                                     {item.submenus.map((submenu, subIdx) => (
                                         <li key={subIdx}>
                                             <Link href={submenu.path} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-lg">
-                                                {submenu.title}
+                                                {submenu.title} 
                                             </Link>
                                         </li>
                                     ))}
