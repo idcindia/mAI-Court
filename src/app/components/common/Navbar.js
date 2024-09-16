@@ -30,9 +30,8 @@ const Navbar = () => {
             name: "About Us",
             path: "/about", 
             submenus: [
-              { name: "Our Mission", path: "/about" },
-              { name: "Our Vision", path: "/about" },
-              { name: "why mAICourt?", path: "/about" },
+              { name: "Our Mission & Vision", path: "/about" },
+              { name: "why mAICourt?",path: "/about#why-maicourt", },
               { name: "Contact Us", path: "/contact" },
               { name: "Support", path: "/contact" },
               { name: "FAQ", path: "/contact" },

@@ -7,17 +7,14 @@ const Cardmission = () => {
           <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left">
             Our Mission
           </h1>
-          <h2 className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] bg-clip-text text-xl font-bold text-transparent text-left">
-            Justice prevails through righteousness alone.
-          </h2>
           <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
-            Guided by this principle, our mission is to make justice accessible
-            for everyone by providing affordable legal awareness and leveraging
-            technology to empower individuals and communities. We are committed
-            to bridging the gap between people and the legal system, ensuring
-            that every individual can navigate their rights and obligations confidently. 
-            With a focus on education, support, and innovative tools, we are here to assist 
-            you at every stage of your legal journey, fostering a fair and just society for all.
+            Our mission is to ensure justice is accessible to all by providing
+            affordable legal awareness and leveraging technology to empower
+            individuals and communities. We are dedicated to making legal
+            resources easy to access, ensuring that every person can confidently
+            navigate their rights and obligations. Our goal is to support you at
+            every stage of your legal journey, fostering a just and equitable
+            society for everyone.
           </p>
         </div>
 
@@ -26,17 +23,15 @@ const Cardmission = () => {
           <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left">
             Our Vision
           </h1>
-          <h2 className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] bg-clip-text text-xl font-bold text-transparent text-left">
-            Justice prevails through righteousness alone.
-          </h2>
           <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
-            Our vision is to create a world where every individual, regardless of their
-            background, is empowered with the knowledge, tools, and support needed to 
-            seek and achieve justice. By harnessing the power of advanced AI technology 
-            and building a strong community of legal professionals, educators, and advocates,
-            we strive to democratize the legal system in India. Our vision is to make it more
-            transparent, accessible, and equitable for all, ensuring that justice is not a 
-            privilege, but a right available to everyone. 
+            Our vision is to create a society where justice is a right, not a
+            privilege. By combining advanced AI technology with a strong network
+            of legal professionals, educators, and advocates, we aim to make the
+            legal system transparent, accessible, and equitable for all. We
+            believe in empowering individuals with the knowledge, tools, and
+            resources they need to seek justice, regardless of their background
+            or financial standing. Through this, we strive to democratize legal
+            access and build a fairer, more inclusive world.
           </p>
         </div>
       </div>
