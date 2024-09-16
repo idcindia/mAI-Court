@@ -9,7 +9,7 @@ const Blog = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-cover bg-center" style={{ backgroundImage: 'url(/Assests/blog-hero.jpeg)' }}>
+      <section className="relative h-[400px] bg-cover bg-center" style={{ backgroundImage: 'url(/Assests/law3.jpeg)' }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
           <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent">Our Blog</h1>

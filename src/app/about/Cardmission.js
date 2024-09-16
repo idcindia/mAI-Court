@@ -8,13 +8,11 @@ const Cardmission = () => {
             Our Mission
           </h1>
           <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
-            Our mission is to ensure justice is accessible to all by providing
-            affordable legal awareness and leveraging technology to empower
-            individuals and communities. We are dedicated to making legal
-            resources easy to access, ensuring that every person can confidently
-            navigate their rights and obligations. Our goal is to support you at
-            every stage of your legal journey, fostering a just and equitable
-            society for everyone.
+            Facilitating the administration of justice by ensuring accessible,
+            timely, and affordable legal support for everyone, especially
+            marginalized communities. We aim to leverage technology to
+            streamline the legal process, making justice more transparent and
+            reachable for all.
           </p>
         </div>
 
@@ -24,14 +22,11 @@ const Cardmission = () => {
             Our Vision
           </h1>
           <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
-            Our vision is to create a society where justice is a right, not a
-            privilege. By combining advanced AI technology with a strong network
-            of legal professionals, educators, and advocates, we aim to make the
-            legal system transparent, accessible, and equitable for all. We
-            believe in empowering individuals with the knowledge, tools, and
-            resources they need to seek justice, regardless of their background
-            or financial standing. Through this, we strive to democratize legal
-            access and build a fairer, more inclusive world.
+            To modernize court procedures, ensure adequate judicial resources,
+            promote timely judge appointments, and drive judicial reforms. We
+            are dedicated to empowering underserved communities with legal aid,
+            improving the efficiency and fairness of justice delivery for a more
+            inclusive society.
           </p>
         </div>
       </div>
