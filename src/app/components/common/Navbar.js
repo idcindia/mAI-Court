@@ -23,8 +23,11 @@ const Navbar = () => {
         submenus: ["Legal Articles", "Guides", "Templates", "E-Books"],
         },
         {
-        name: "Blogs",
-        submenus: ["Latest Posts", "Trending", "Categories", "Archives"],
+            name: "Updates",
+            submenus: [
+                { name: "Blogs", path: "/blog" },
+                { name: "Events", path: "/events" },
+            ],
         },
         {
             name: "About Us",
