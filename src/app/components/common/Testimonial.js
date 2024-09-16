@@ -8,7 +8,7 @@ const testimonials = [
         rating: 5
     },
     {
-        name: "Arya Chaurasia",
+        name: "Vikas Mishra",
         image: "https://randomuser.me/api/portraits/women/1.jpg",
         text: "Absolutely fantastic course! The instructor explained complex topics in a way that's easy to understand. I feel confident applying what I've learned in real-world projects. Highly recommended.",
         rating: 5
