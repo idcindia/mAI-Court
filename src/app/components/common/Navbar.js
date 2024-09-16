@@ -1,139 +1,122 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"; 
+import { useState, useEffect } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeSubmenu, setActiveSubmenu] = useState(null);
-   
-
-    const navItems = [
-        {
-        name: "Legal Aid",
-        submenus: ["Court Cases", "Legal Advice", "Consultations", "Reports"],
-        },
-        {
-        name: "Partners",
-        submenus: ["Corporate Partners", "NGOs", "Collaborations", "Government"],
-        },
-        {
-        name: "Resources",
-        submenus: ["Legal Articles", "Guides", "Templates", "E-Books"],
-        },
-        {
-            name: "Updates",
-            submenus: [
-                { name: "Blogs", path: "/blog" },
-                { name: "Events", path: "/events" },
-            ],
-        },
-        {
-            name: "About Us",
-            path: "/about", 
-            submenus: [
-              { name: "Our Mission & Vision", path: "/about" },
-              { name: "why mAICourt?",path: "/about#why-maicourt", },
-              { name: "Contact Us", path: "/contact" },
-              { name: "Support", path: "/contact" },
-              { name: "FAQ", path: "/contact" },
-              { name: "Customer Service", path: "/contact" },
-              { name: "Reach Us", path: "/contact" },
-            ],
-          },
-          
-        {
-        name: "Join Us",
-        submenus: [
-            { name: "LogIn", path: "/login" },
-            { name: "SignUp", path: "/register" },
-        ],
-        },
-    ];
 
     useEffect(() => {
         const handleScroll = () => {
-        setScrolled(window.scrollY > 50);
+            setScrolled(window.scrollY > 50);
         };
-    
+
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-
-    const toggleSubmenu = (idx) => {
-        setActiveSubmenu(activeSubmenu === idx ? null : idx); // Toggle the active submenu
-    };
-
+    const navItems = [
+        {
+            name: "Legal Aid",
+            path: "/notfound", 
+            submenus: [
+                { title: "Court Cases", path: "/notfound/Page" },
+                { title: "Legal Advice", path: "/notfound" },
+                { title: "Consultations", path: "/notfound" },
+                { title: "Reports", path: "/notfound" },
+            ],
+        },
+        {
+            name: "Partners",
+            path: "/errorpage", // Redirect to the ErrorPage for Partners
+            submenus: [
+                { title: "Corporate Partners", path: "/errorpage" },
+                { title: "NGOs", path: "/errorpage" },
+                { title: "Collaborations", path: "/errorpage" },
+                { title: "Government", path: "/errorpage" },
+            ],
+        },
+        {
+            name: "Resources",
+            submenus: [
+                { title: "Legal Articles", path: "/resources/legal-articles" },
+                { title: "Guides", path: "/resources/guides" },
+                { title: "Templates", path: "/resources/templates" },
+                { title: "E-Books", path: "/resources/e-books" },
+            ],
+        },
+        {
+            name: "Updates",
+            submenus: [
+                { title: "Blogs", path: "/blog" },
+                { title: "Events", path: "/events" },
+            ],
+        },
+        {
+            name: "About Us",
+            submenus: [
+                { title: "Our Mission & Vision", path: "/about" },
+                { title: "Why mAICourt?", path: "/about#why-maicourt" },
+                { title: "Contact Us", path: "/contact" },
+                { title: "Support", path: "/contact" },
+                { title: "FAQ", path: "/contact" },
+                { title: "Customer Service", path: "/contact" },
+                { title: "Reach Us", path: "/contact" },
+            ],
+        },
+        {
+            name: "Join Us",
+            submenus: [
+                { title: "LogIn", path: "/login" },
+                { title: "SignUp", path: "/register" },
+            ],
+        },
+    ];
 
     return (
-        <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white opacity-95 shadow-lg h-[5.5rem]" : "bg-transparent h-20"
-                }`}
-        >
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white opacity-95 shadow-lg h-[5.5rem]" : "bg-transparent h-20"}`}>
             <div className="container mx-auto flex items-center justify-between px-6 py-1">
                 {/* Logo */}
                 <div className="font-bold text-2xl text-white">
-                   <Link href={"/"}>
-                   <Image
-                        src="/Assests/logo.png"
-                        alt="Logo"
-                        className="h-[5rem] w-[9rem]"
-                        width={144}
-                        height={80}
-                    />
-                   </Link>
+                    <Link href="/">
+                        <Image src="/Assests/logo.png" alt="Logo" className="h-[5rem] w-[9rem]" width={144} height={80} />
+                    </Link>
                 </div>
 
                 {/* Toggle Button for Mobile View */}
                 <div className="md:hidden">
                     {isMenuOpen ? (
-                        <AiOutlineClose
-                            className="text-red-500 text-3xl cursor-pointer"
-                            onClick={() => setIsMenuOpen(false)}
-                        />
+                        <AiOutlineClose className="text-red-500 text-3xl cursor-pointer" onClick={() => setIsMenuOpen(false)} />
                     ) : (
-                        <AiOutlineMenu
-                            className="text-black text-3xl cursor-pointer"
-                            onClick={() => setIsMenuOpen(true)}
-                        />
+                        <AiOutlineMenu className="text-black text-3xl cursor-pointer" onClick={() => setIsMenuOpen(true)} />
                     )}
                 </div>
 
                 {/* Navbar Links for Desktop */}
-                <ul className="hidden md:flex space-x-1 text-black">
+                <ul className="hidden md:flex space-x-4 text-black">
                     {navItems.map((item, idx) => (
                         <li key={idx} className="relative group">
-                            <Link
-                                href={`#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
-                                className="hover:text-white hover:bg-slate-500 px-4 py-2 rounded-lg text-lg font-semibold transition"
-                            >
+                            <Link href={item.path || "#"} className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200">
                                 {item.name}
                             </Link>
 
                             {/* Dropdown Menu for Desktop */}
-                            <div className="absolute hidden group-hover:block lg:bg-white bg-gray-600 shadow-lg rounded-lg mt-2 w-48 z-50">
-                                {item.submenus.map((submenu, subIdx) => (
-                                    <Link
-                                        key={subIdx}
-                                        href={
-                                            typeof submenu === 'object'
-                                                ? submenu.path
-                                                : `#${submenu.toLowerCase().replace(/\s+/g, "-")}`
-                                        }
-                                        className="block px-4 py-2 lg:text-gray-700 text-gray-300 hover:bg-gray-200"
-                                    >
-                                        {typeof submenu === 'object' ? submenu.name : submenu}
-                                    </Link>
-                                ))}
-                            </div>
+                            {item.submenus && (
+                                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                    {item.submenus.map((submenu, subIdx) => (
+                                        <Link key={subIdx} href={submenu.path} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                            {submenu.title}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
                         </li>
                     ))}
 
                     {/* Premium Button */}
-                    <li className="ml-5 -mt-[6px]">
-                        <button className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] hover:bg-gradient-to-r hover:from-[#b96c00] hover:to-[#3f2706] text-white font-semibold px-6 py-2 rounded-lg">
+                    <li className="ml-5">
+                        <button className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] hover:from-[#b96c00] hover:to-[#3f2706] text-white font-semibold px-6 py-2 rounded-lg">
                             Premium Services
                         </button>
                     </li>
@@ -141,35 +124,22 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div
-                className={`${isMenuOpen ? "block" : "hidden"
-                    } md:hidden bg-white text-center absolute w-full z-50 py-6`}
-            >
+            <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden bg-white text-center absolute w-full z-50 py-6`}>
                 <ul className="space-y-6 text-lg font-semibold">
                     {navItems.map((item, idx) => (
                         <li key={idx}>
-                            <a
-                                href={`#${item.name.toLowerCase().replace(/\s+/g, "-")}`}
-                                className="block text-gray-700 hover:text-yellow-600 transition"
-                                onClick={() => toggleSubmenu(idx)} // Toggle the submenu in mobile view
-                            >
+                            <Link href={item.path || "#"} className="block text-gray-700 hover:text-yellow-600 transition">
                                 {item.name}
-                            </a>
+                            </Link>
 
                             {/* Dropdown Submenu for Mobile */}
-                            {activeSubmenu === idx && (
-                                <ul className="mt-2 space-y-2 bg-gray-300">
+                            {item.submenus && (
+                                <ul className="mt-2 space-y-2 bg-gray-300 rounded-lg">
                                     {item.submenus.map((submenu, subIdx) => (
                                         <li key={subIdx}>
-                                            <a
-                                                href={`#${typeof submenu === 'object'
-                                                    ? submenu.name.toLowerCase().replace(/\s+/g, "-")
-                                                    : submenu.toLowerCase().replace(/\s+/g, "-")
-                                                    }`}
-                                                className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                                            >
-                                                {typeof submenu === 'object' ? submenu.name : submenu}
-                                            </a>
+                                            <Link href={submenu.path} className="block px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-lg">
+                                                {submenu.title}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -185,7 +155,7 @@ const Navbar = () => {
                 </ul>
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
