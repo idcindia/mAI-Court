@@ -1,0 +1,76 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "How Legal Reforms are Changing the Justice System",
+        "author": "John Doe",
+        "date": "September 15, 2024",
+        "summary": "A deep dive into the recent legal reforms that are making the justice system more accessible to everyone.",
+        "link": "/blog/legal-reforms",
+         "image": "/Assests/blog1.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Understanding Your Legal Rights",
+        "author": "Jane Smith",
+        "date": "September 14, 2024",
+        "summary": "A comprehensive guide to understanding the legal rights you hold as a citizen and how to exercise them.",
+        "link": "/blog/legal-rights",
+        "image": "/Assests/blog1.jpg"
+      },
+      {
+        "id": 3,
+        "title": "The Future of Digital Law",
+        "author": "David Lee",
+        "date": "September 13, 2024",
+        "summary": "Exploring how technology is transforming the legal landscape and what it means for the future of law.",
+        "link": "/blog/digital-law",
+        "image": "/Assests/blog1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "How to Stay Updated with Legal News",
+        "author": "Emily Brown",
+        "date": "September 12, 2024",
+        "summary": "Tips and resources to help you stay informed about the latest developments in law and justice.",
+        "link": "/blog/stay-updated",
+        "image": "/Assests/blog1.jpg"
+      }
+    ],
+    "categories": [
+      {
+        "name": "Legal Insights",
+        "link": "/category/legal"
+      },
+      {
+        "name": "Educational Resources",
+        "link": "/category/education"
+      },
+      {
+        "name": "Latest Updates",
+        "link": "/category/updates"
+      }
+    ],
+    "recentPosts": [
+      {
+        "title": "Recent Post 1",
+        "link": "/blog/recent-post-1"
+      },
+      {
+        "title": "Recent Post 2",
+        "link": "/blog/recent-post-2"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Legal"
+      },
+      {
+        "name": "Education"
+      },
+      {
+        "name": "Updates"
+      }
+    ]
+  }
+  

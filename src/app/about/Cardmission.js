@@ -8,11 +8,11 @@ const Cardmission = () => {
             Our Mission
           </h1>
           <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
-            Facilitating the administration of justice by ensuring accessible,
-            timely, and affordable legal support for everyone, especially
-            marginalized communities. We aim to leverage technology to
-            streamline the legal process, making justice more transparent and
-            reachable for all.
+            &ldquo;धर्मेणैव जयते न्यायः&rdquo; – Justice prevails through righteousness
+            alone. Guided by this principle, our mission is to bridge the
+            justice gap by offering free legal aid and education, empowered by
+            cutting-edge AI technology, ensuring no one is left behind in their
+            pursuit of justice.
           </p>
         </div>
 
