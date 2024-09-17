@@ -1,5 +1,4 @@
-// app/legal/page.js
-
+'use client'; 
 import { motion } from 'framer-motion';
 
 export default function Legal() {
@@ -7,29 +6,29 @@ export default function Legal() {
     {
       title: 'Family Law',
       description:
-        'Get assistance with legal issues related to divorce, child custody, and more.',
+        'Get professional help with legal matters involving divorce, child custody, spousal support, and other family-related issues, ensuring the best possible outcomes for you and your loved ones.',
     },
     {
       title: 'Criminal Defense',
-      description: 'Expert representation for criminal cases at affordable rates.',
+      description: 'Receive expert legal representation in criminal cases, safeguarding your rights and providing affordable defense strategies for misdemeanors, felonies, and other charges, helping you navigate the legal system confidently. ',
     },
     {
       title: 'Employment Law',
-      description: 'Legal help with workplace disputes, wrongful termination, and contracts.',
+      description: 'Find legal assistance for workplace disputes, wrongful termination, contract issues, and discrimination cases, ensuring fair treatment and protecting your rights as an employee or employer in labor matters.',
     },
     {
       title: 'Property Law',
       description:
-        'Solve property disputes, title issues, and other real estate legal matters.',
+        'Resolve property disputes, handle title issues, manage real estate transactions, and address zoning laws, ensuring your property rights are protected and legal matters are handled effectively.',
     },
   ];
 
   return (
-    <div className="container mx-auto py-16">
+    <div className="container mx-auto py-16 mt-14">
       {/* Legal Aid Intro Section */}
       <section className="text-center">
         <motion.h1
-          className="text-4xl font-bold text-blue-900"
+          className="text-4xl font-bold text-[#EB961A]"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -81,11 +80,11 @@ export default function Legal() {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="/lawyer1.jpg"
+              src="/Assests/gk3.jpg"
               alt="Lawyer 1"
               className="rounded-full w-24 h-24 mx-auto mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">John Doe</h3>
+            <h3 className="text-xl font-semibold text-gray-800">Awadesh Advocate LLB</h3>
             <p className="text-gray-600">Criminal Law Expert</p>
           </motion.div>
 
@@ -96,11 +95,11 @@ export default function Legal() {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="/lawyer2.jpg"
+              src="/Assests/gk2.jpg"
               alt="Lawyer 2"
               className="rounded-full w-24 h-24 mx-auto mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">Jane Smith</h3>
+            <h3 className="text-xl font-semibold text-gray-800">Vikash Mishra Advocate LLB</h3>
             <p className="text-gray-600">Family Law Specialist</p>
           </motion.div>
 
@@ -111,11 +110,11 @@ export default function Legal() {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="/lawyer3.jpg"
+              src="/Assests/gk.jpg"
               alt="Lawyer 3"
               className="rounded-full w-24 h-24 mx-auto mb-4"
             />
-            <h3 className="text-xl font-semibold text-gray-800">Robert Brown</h3>
+            <h3 className="text-xl font-semibold text-gray-800">Md Arman Advocate LLB</h3>
             <p className="text-gray-600">Employment Law Attorney</p>
           </motion.div>
         </div>
