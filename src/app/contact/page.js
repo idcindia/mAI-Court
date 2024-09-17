@@ -15,10 +15,10 @@ const Contact = () => {
     <div>
       {/* Hero Section */}
       <section className="relative h-[400px] bg-cover bg-center" style={{ backgroundImage: 'url(/Assests/law3.jpg)' }}>
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent">Contact Us</h1>
-          <p className="mt-4 text-xl text-slate-100">Explore our Services: Discover how mAI Court can assist you with legal aid, educational resources, and more. <br />
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#9e5d02] bg-clip-text text-transparent">Contact Us</h1>
+          <p className="mt-4 text-xl font-semibold text-[#cf9c2c]">Explore our Services: Discover how mAI Court can assist you with legal aid, educational resources, and more. <br />
             Have questions? Our support team is here to help you 24/7.</p>
         </div>
       </section>
