@@ -40,7 +40,7 @@ const Navbar = () => {
         {
             name: "Resources ▾",
             submenus: [
-                { title: "Legal Articles", path: "/resources/legal-articles" },
+                { title: "Legal Articles", path: "/legal-articles" },
                 { title: "Guides", path: "/resources/guides" },
                 { title: "Templates", path: "/resources/templates" },
                 { title: "E-Books", path: "/resources/e-books" },
