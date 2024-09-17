@@ -19,17 +19,17 @@ const Navbar = () => {
     const navItems = [
         {
             name: "Legal Aid ▾",
-            path: "/notfound", 
+             
             submenus: [
-                { title: "Court Cases", path: "/notfound/Page" },
-                { title: "Legal Advice", path: "/notfound" },
-                { title: "Consultations", path: "/notfound" },
-                { title: "Reports", path: "/notfound" },
+                { title: "Legal", path: "/legal" },
+                { title: "Legal Advice", path: "/legal" },
+                { title: "Consultations", path: "/legal" },
+                { title: "Reports", path: "/legal" },
             ],
         },
         {
             name: "Partners ▾",
-            path: "/errorpage", // Redirect to the ErrorPage for Partners
+            path: "/errorpage", 
             submenus: [
                 { title: "Corporate Partners", path: "/errorpage" },
                 { title: "NGOs", path: "/errorpage" },

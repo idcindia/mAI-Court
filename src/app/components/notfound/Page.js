@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 
-export default function ErrorPage() {
+export default function notfound() {
   useEffect(() => {
     document.title = 'Page Coming Soon';
   }, []);
