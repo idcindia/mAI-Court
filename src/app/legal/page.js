@@ -52,11 +52,11 @@ export default function Legal() {
         <h2 className="text-3xl font-semibold text-center text-gray-800 mb-12">
           Our Legal Services
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 ml-14  gap-y-5">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg p-6 rounded-lg"
+              className="bg-white shadow-lg p-6 rounded-lg w-[80%] border border-slate-300"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
