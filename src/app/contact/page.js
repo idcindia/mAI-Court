@@ -35,7 +35,7 @@ const Contact = () => {
                     <ApartmentIcon className="text-white text-5xl mr-4" />
                   </Suspense> Our Office
                 </h2>
-                <p className="text-base mb-2">Ashoka Estate Cannaught Place, New Delhi, India</p>
+                <p className="text-base mb-2">GL-7, Ashoka Estate Cannaught Place, New Delhi, India</p>
                 <p className="text-base mb-2">Phone: +91 77195-58184</p>
                 <p className="text-base mb-2">Email: contact@mAICourt.com</p>
                 <p className="text-base">24/7 Available</p>

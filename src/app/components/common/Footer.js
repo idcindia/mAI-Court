@@ -1,6 +1,7 @@
 // Footer.js
 // components/Footer.js
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
           {/* Contact Information */}
           <div className="mb-4 md:mb-0 flex gap-y-10 flex-col">
             <div className=''>
-              <img src="/Assests/logo.png" alt="assests/logo.png" className='w-24 h-12' />
+            <Image src="/Assests/logo.png" alt="mAICourt Logo" width={96} height={48} className='w-24 h-12' />
             </div>
             <div>
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
