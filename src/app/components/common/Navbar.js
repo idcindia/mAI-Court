@@ -28,16 +28,16 @@ const Navbar = () => {
         { title: "Reports", path: "/legal" },
       ],
     },
-    {
-      name: "Partners ▾",
-      path: "/errorpage",
-      submenus: [
-        { title: "Corporate Partners", path: "/errorpage" },
-        { title: "NGOs", path: "/errorpage" },
-        { title: "Collaborations", path: "/errorpage" },
-        { title: "Government", path: "/errorpage" },
-      ],
-    },
+    // {
+    //   name: "Partners ▾",
+    //   path: "/errorpage",
+    //   submenus: [
+    //     { title: "Corporate Partners", path: "/errorpage" },
+    //     { title: "NGOs", path: "/errorpage" },
+    //     { title: "Collaborations", path: "/errorpage" },
+    //     { title: "Government", path: "/errorpage" },
+    //   ],
+    // },
     {
       name: "Resources ▾",
       submenus: [
