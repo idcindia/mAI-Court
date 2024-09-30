@@ -28,7 +28,7 @@ const LoginPage = (props) => {
     });
   };
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
@@ -36,32 +36,38 @@ const LoginPage = (props) => {
     const { email, password } = formData;
 
     try {
-      const response = await fetch(`${apiUrl}/user/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+        const response = await fetch(`${apiUrl}/user/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+        });
 
-      const data = await response.json();
-      setLoading(false);
-      console.log("Submitting login data to:", process.env.NEXT_PUBLIC_API_URL);
+        const data = await response.json();
+        console.log(data, "datadatadata")
+        setLoading(false);
+        console.log("Submitting login data to:", process.env.NEXT_PUBLIC_API_URL);
 
+        if (response.ok) {
+            toast.success("Login successful!");
+            dispatch(saveUser(data));
+            dispatch(setAccessToken(data.token));
 
-      if (response.ok) {
-        toast.success("Login successful!");
-        dispatch(saveUser(data.user));
-        dispatch(setAccessToken(data.token)); 
-        router.push("/"); 
-      } else {
-        toast.error(data.message || "Invalid credentials");
-      }
+            if (data.data.role === 'admin') {
+                router.push("/admin");
+            } else {
+                router.push("/"); 
+            }
+        } else {
+            toast.error(data.message || "Invalid credentials");
+        }
     } catch (err) {
-      setLoading(false);
-      toast.error("Something went wrong! Please try again later.");
+        setLoading(false);
+        toast.error("Something went wrong! Please try again later.");
     }
-  };
+};
+
 
   return (
     <div className="h-[45rem] flex items-center justify-center bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/Assests/web4.jpg')" }}>

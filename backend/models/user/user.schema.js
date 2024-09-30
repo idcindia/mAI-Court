@@ -30,7 +30,7 @@ const userSchema = new Schema(
         "partnerInstitution",
         "admin",
       ],
-      default: "general",
+      required: true,
     },
     accessLevel: {
       type: String,

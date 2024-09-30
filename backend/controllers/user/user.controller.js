@@ -104,12 +104,16 @@ exports.login = async (req, res) => {
             { expiresIn: '5h' },
             (err, token) => {
                 if (err) throw err;
+            
+                user = user.toObject(); 
+                user.token = token;
+                
                 return apiResponse.successResponseWithData(res, 'Login successful', user);
             }
         );
 
     } catch (err) {
-        console.log(err, "errrrrrrr")
+        console.log(err, "errrrrrrr");
         return apiResponse.ErrorResponse(res, 'Login failed');
     }
 };
