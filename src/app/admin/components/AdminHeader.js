@@ -1,11 +1,7 @@
-// src/app/admin/components/AdminHeader.js
-
-import React from 'react';
-
-const AdminHeader = ({ toggleSidebar }) => {
+const AdminHeader = () => {
     return (
-        <header className="bg-[#172240] text-white flex justify-between items-center p-0 shadow">
-    <h1>dhjgilh</h1>
+        <header className="bg-gray-800 text-white p-4">
+            <h1 className="text-lg">Admin Panel</h1>
         </header>
     );
 };

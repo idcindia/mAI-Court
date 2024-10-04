@@ -13,12 +13,12 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from "./components/common/Navbar";
 import AdminHeader from "./admin/components/AdminHeader";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation"; // usePathname instead of useRouter
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
-  const router = useRouter();
+  const pathname = usePathname();  // Using usePathname to directly access the current path
   const [isAdminRoute, setIsAdminRoute] = useState(false);
 
   useEffect(() => {
@@ -27,11 +27,11 @@ export default function RootLayout({ children }) {
       once: true,
     });
 
-    // Make sure we only check the pathname on the client-side
-    if (router && router.pathname) {
-      setIsAdminRoute(router.pathname.startsWith("/admin"));
+    // Check if current route is an admin route
+    if (pathname) {
+      setIsAdminRoute(pathname.startsWith("/admin"));
     }
-  }, [router]);
+  }, [pathname]);
 
   return (
     <html lang="en" className={inter.className}>
@@ -45,12 +45,12 @@ export default function RootLayout({ children }) {
           <PersistGate loading={null} persistor={persistor}>
             <ToastContainer />
 
-            {/* Conditionally render AdminHeader or Navbar based on the route */}
+            
             {isAdminRoute ? <AdminHeader /> : <Navbar />}
-            
+
             {children}
-            
-            {/* Conditionally render Footer only for non-admin routes */}
+
+           
             {!isAdminRoute && <Footer />}
           </PersistGate>
         </Provider>
