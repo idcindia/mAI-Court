@@ -5,7 +5,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/Reducers/authSlice"; 
 import { Menu, MenuItem, IconButton } from "@mui/material"; 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"; // Import your Avatar component
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,17 +42,16 @@ const Navbar = () => {
       submenus: [
         { title: "Legal Services", path: "/legal-services" },
         { title: "Legal Advice", path: "/legal-advice" },
-        { title: "Consultations", path: "/consultations" },
+        { title: "Consultations", path: "/consultation" },
         { title: "Reports", path: "/reports" },
       ],
     },
     {
       name: "Resources ▾",
       submenus: [
-        { title: "Legal Articles", path: "/legal-articles" },
+        { title: "Landmark Judgment Summaries", path: "/landmark-judgment-summaries" },
         { title: "Guides", path: "/guides" },
-        { title: "Templates", path: "/templates" },
-        { title: "E-Books", path: "/e-books" },
+        { title: "Templates", path: "/templates" }
       ],
     },
     {
