@@ -15,8 +15,9 @@ export const landmarkJudgments = [
         'Whether Mr. Kejriwal is entitled to bail in the CBI case.'
       ],
       factualBackground: `The Delhi Government framed the Excise Policy 2021-2022 for the sale of liquor. In July 2022, the Lieutenant Governor of Delhi and the Union Home Ministry complained about financial irregularities concerning the policy. An investigation by the CBI led to the registration of a First Information Report (“FIR”) for the offences of criminal conspiracy, falsification of accounts and gratification for an official act (“CBI case”). Based on this FIR, the ED registered a separate case (“ED Case”) into the liquor policy. Mr. Kejriwal who was Chief Minister of Delhi at the time was not initially named in either the CBI or ED case.`,
-      readMoreLink: '#', // replace with actual link
-      viewJudgmentLink: '#' // replace with actual link
+      readMoreLink: '#', 
+      viewJudgmentLink: '#', 
+      pdfLink: '/Assests/Arvind-kejriwal.pdf'
     }
   },
   {

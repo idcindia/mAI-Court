@@ -53,7 +53,7 @@ const LandmarkJudgmentSummaries = () => {
                     <strong>Factual Background:</strong><br />
                     {judgment.judgmentSummary.factualBackground}<br />
                     <a href={judgment.judgmentSummary.readMoreLink} className="text-blue-500 hover:underline">Read More</a> | 
-                    <a href={judgment.judgmentSummary.viewJudgmentLink} className="text-blue-500 hover:underline"> View Judgment</a>
+                    <a href={judgment.judgmentSummary.pdfLink} className="text-blue-500 hover:underline"> View Judgment (PDF)</a>
                   </div>
                 </td>
               </tr>
