@@ -12,7 +12,7 @@ const ImageSlider = () => {
   const sections = [
     { title: "Tax matters", icon: "🏛️", path: "/tax-matters" },
     { title: "Right to Information", icon: "⚖️", path: "/right-to-information" },
-    { title: "Case Status", icon: "💻", path: "https://www.sci.gov.in/case-status-case-no/" },
+    { title: "Case Status", icon: "💻", path: "/casestatus" },
     { title: "Judgments", icon: "⚖️", path: "https://www.livelaw.in/top-stories" },
     { title: "Bank and finance", icon: "💼", path: "/bank-and-finance" },
   ];
