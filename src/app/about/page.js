@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Cardmission from "./Cardmission";
 import LearningGrid from "./LearningGrid";
-import Testimonial from "../components/common/Testimonial";
+import ReviewCard from "@/app/components/common/ReviewCard";
 
 const About = () => {
   return (
@@ -54,8 +54,11 @@ const About = () => {
             <LearningGrid />
           </div>
         </div>
-        <div>
-          <Testimonial />
+        <div className=" flex flex-col items-center justify-center shadow-xl mb-5 ">
+          <h1 className="text-[#E59520] font-bold text-3xl  ">
+            <span className="text-3xl font-bold">What Our Clients Say</span>
+          </h1>
+          <ReviewCard />
         </div>
       </div>
     </div>

@@ -68,14 +68,14 @@ const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({ img, name, username, body }) => {
   return (
-    <figure className="relative w-64 md:w-72 lg:w-80 border-t-0 cursor-pointer overflow-hidden bg-white rounded-xl border p-4 bg-gray-950/[.01] border-richblack-700/[.1] hover:bg-gray-950/[.05] dark:bg-gray-50/[.10] dark:border-richblack-50/[.1] dark:hover:bg-gray-50/[.15]">
+    <figure className="relative w-64 md:w-72 lg:w-80 border-t-0 cursor-pointer overflow-hidden bg-white rounded-xl border p-4 bg-gray-950/[.01] border-gray-700/[.1] hover:bg-gray-900 hover:text-white dark:bg-gray-50/[.10] dark:border-gray-50/[.1] dark:hover:bg-gray-50/[.15]">
       <div className="flex flex-row items-center gap-2">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-md font-medium dark:text-richblack-600">
+          <figcaption className="text-md font-medium dark:text-gray-600">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-richblack-800/40">{username}</p>
+          <p className="text-xs font-medium dark:text-gray-800/40">{username}</p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{body}</blockquote>
