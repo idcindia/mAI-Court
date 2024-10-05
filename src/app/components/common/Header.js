@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-
 export default function Header() {
   const [isAnimating, setIsAnimating] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
@@ -65,8 +64,8 @@ export default function Header() {
         style={{
           backgroundImage: `url(${images[currentImage].src})`,
         }}
-      >`  `
-        {/* Title and Description */}
+      >
+        ` `{/* Title and Description */}
         <div
           className={`absolute left-10  mt-[11rem] lg:w-[40%] w-[60%] h-[17rem] inset-0 flex flex-col justify-center items-center text-center transition-all duration-1000 transform ${
             isAnimating
