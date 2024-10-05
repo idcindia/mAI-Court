@@ -6,6 +6,7 @@ import Features from "./BigImage";
 import ReviewCard from "@/app/components/common/ReviewCard";
 import Header from "../common/Header";
 import SearchBar from "./search/searchbar";
+import { motion } from "framer-motion"; // Import framer-motion
 
 const ImageSlider = () => {
   const sections = [
@@ -31,8 +32,14 @@ const ImageSlider = () => {
             <div key={index}>
               {section.path.startsWith("http") ? (
                 // For external links
-                <div
+                <motion.div
                   onClick={() => window.open(section.path, "_blank")}
+                  whileHover={{
+                    scale: 1.05, // Scale the card on hover
+                    boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.2)", // Increase shadow on hover
+                    backgroundColor: "#FBBF24", // Change background to yellow on hover
+                  }}
+                  transition={{ type: "spring", stiffness: 300 }}
                   className="bg-gray-100 h-[14rem] shadow-[0px_0px_7px_0px_#718096] hover:bg-yellow-500 text-center rounded-md transition-colors flex flex-col justify-center items-center p-4 cursor-pointer"
                 >
                   <div className="text-[4rem] sm:text-[5rem] md:text-[6rem] mb-2">
@@ -41,18 +48,26 @@ const ImageSlider = () => {
                   <div className="font-bold text-base sm:text-lg md:text-xl">
                     {section.title}
                   </div>
-                </div>
+                </motion.div>
               ) : (
                 // For internal links
                 <Link href={section.path}>
-                  <div className="bg-gray-100 h-[14rem] shadow-[0px_0px_7px_0px_#718096] hover:bg-yellow-500 text-center rounded-md transition-colors flex flex-col justify-center items-center p-4 cursor-pointer">
+                  <motion.div
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.2)",
+                      backgroundColor: "#FBBF24",
+                    }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="bg-gray-100 h-[14rem] shadow-[0px_0px_7px_0px_#718096] hover:bg-yellow-500 text-center rounded-md transition-colors flex flex-col justify-center items-center p-4 cursor-pointer"
+                  >
                     <div className="text-[4rem] sm:text-[5rem] md:text-[6rem] mb-2">
                       {section.icon}
                     </div>
                     <div className="font-bold text-base sm:text-lg md:text-xl">
                       {section.title}
                     </div>
-                  </div>
+                  </motion.div>
                 </Link>
               )}
             </div>

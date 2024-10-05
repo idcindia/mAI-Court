@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/Reducers/authSlice"; 
@@ -11,9 +11,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.auth);
+
+  const dropdownRef = useRef(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -28,12 +31,28 @@ const Navbar = () => {
     handleClose();
   };
 
+  const handleDropdownToggle = (index) => {
+    setActiveDropdown((prev) => (prev === index ? null : index));
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setActiveDropdown(null);
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const navItems = [
@@ -115,19 +134,23 @@ const Navbar = () => {
         </div>
 
         {/* Navbar Links for Desktop */}
-        <ul className="hidden md:flex text-black items-center">
+        <ul className="hidden md:flex text-black items-center" ref={dropdownRef}>
           {navItems.map((item, idx) => (
             <li key={idx} className="relative group mx-3">
-              <Link
-                href={item.path || "#"}
-                className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200"
+              <button
+                onClick={() => handleDropdownToggle(idx)}
+                className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200 focus:outline-none"
               >
                 {item.name}
-              </Link>
+              </button>
 
               {/* Dropdown Menu for Desktop */}
               {item.submenus && (
-                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div
+                  className={`absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-50 transition-all duration-300 ease-in-out overflow-hidden ${
+                    activeDropdown === idx ? "opacity-100 max-h-96" : "opacity-0 max-h-0"
+                  }`}
+                >
                   {item.submenus.map((submenu, subIdx) => (
                     <Link
                       key={subIdx}
