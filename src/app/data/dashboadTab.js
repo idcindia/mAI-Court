@@ -19,15 +19,9 @@ export const adminData = [
     },
     {
         id: 4,
-        name: "Analytics",
-        path: "/admin/analytics",
+        name: "Blog Managememnt",
+        path: "/admin/blog",
         icon: "fa-solid fa-chart-bar",
     },
-    {
-        id: 5,
-        name: "logout",
-        path: "/admin/logout",
-        icon: "fa-solid fa-chart-bar",
-    }
 
 ]
