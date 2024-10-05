@@ -22,25 +22,25 @@ const Features = () => {
         {/* Clickable Grid */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
           {/* Trust */}
-          <a href="#trust" className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+          <a href="#trust" className="flex flex-col items-center p-4  hover:bg-gray-600 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
             <FaHandshake className="text-yellow-500 h-10 w-10 mb-2" />
             <p className="font-semibold text-yellow-500 text-sm">Trust</p>
           </a>
 
           {/* Safety */}
-          <a href="#safety" className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+          <a href="#safety" className="flex flex-col items-center p-4 hover:bg-gray-600 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
             <FaShieldAlt className="text-pink-500 h-10 w-10 mb-2" />
             <p className="font-semibold text-pink-500 text-sm">Safety</p>
           </a>
 
           {/* Quality */}
-          <a href="#quality" className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+          <a href="#quality" className="flex flex-col items-center  hover:bg-gray-600 p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
             <FaGem className="text-green-500 h-10 w-10 mb-2" />
             <p className="font-semibold text-green-500 text-sm">Quality</p>
           </a>
 
           {/* Community */}
-          <a href="#community" className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+          <a href="#community" className="flex flex-col items-center  hover:bg-gray-600 p-4 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
             <FaUsers className="text-blue-500 h-10 w-10 mb-2" />
             <p className="font-semibold text-blue-500 text-sm">Community</p>
           </a>

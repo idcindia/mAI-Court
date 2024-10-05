@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Features from "./BigImage";
-import Testimonial from "../common/Testimonial";
+import ReviewCard from "@/app/components/common/ReviewCard";
 import Header from "../common/Header";
+import SearchBar from "./search/searchbar";
 
 const ImageSlider = () => {
   
@@ -21,35 +22,9 @@ const ImageSlider = () => {
    <div>
     <Header/>
    </div>
-     <div className="relative w-80 md:w-96 flex flex-row  mt-10">
-        <input
-          type="text"
-          className="w-full p-4 pl-10 h-14 text-gray-900 bg-white border border-gray-300 rounded-full shadow-lg focus:ring-2 focus:ring-black focus:outline-none transition-all duration-300 ease-in-out"
-          placeholder="Search for courses or topics..."
-        />
-        <button
-          className="absolute top-1/2 transform -translate-y-1/2 left-4 text-gray-400 hover:text-black transition-colors"
-          aria-label="search icon"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35"
-            />
-          </svg>
-        </button>
-        <button className="absolute right-0 top-1/2 h-14 w-[8rem] transform -translate-y-1/2 bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md hover:bg-gray-800 transition-colors focus:outline-none">
-          Search
-        </button>
-      </div>
+     <div>
+      <SearchBar/>
+     </div>
 
       <div className="boxes w-full px-4 mt-10">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
@@ -72,7 +47,12 @@ const ImageSlider = () => {
     <Features/>
     </div>
     {/* testionials */}
-    <Testimonial/>
+    <div className=" flex flex-col items-center justify-center shadow-xl mb-5 ">
+    <h1 className="text-[#E59520] font-bold text-3xl  ">
+    <span className="text-3xl font-bold">What Our Clients Say</span>
+    </h1>
+    <ReviewCard/>
+    </div>
    </div>
   );
 };

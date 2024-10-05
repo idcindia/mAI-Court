@@ -59,13 +59,13 @@ export default function Header() {
 
       {/* Background Image and Title Section */}
       <div
-        className={`relative w-screen h-[600px] shadow-[0px_10px_20px_-2px_#ecc94b] bg-cover bg-no-repeat bg-center transition-all duration-1000 ${
+        className={`relative w-screen h-[600px] bg-cover bg-no-repeat bg-center transition-all duration-1000 ${
           isAnimating ? "opacity-100" : "opacity-0"
         }`}
         style={{
           backgroundImage: `url(${images[currentImage].src})`,
         }}
-      >
+      >`  `
         {/* Title and Description */}
         <div
           className={`absolute left-10  mt-[11rem] lg:w-[40%] w-[60%] h-[17rem] inset-0 flex flex-col justify-center items-center text-center transition-all duration-1000 transform ${
