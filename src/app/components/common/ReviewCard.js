@@ -68,14 +68,16 @@ const secondRow = reviews.slice(reviews.length / 2);
 
 const ReviewCard = ({ img, name, username, body }) => {
   return (
-    <figure className="relative w-64 md:w-72 lg:w-80 border-t-0 cursor-pointer overflow-hidden bg-white rounded-xl border p-4 bg-gray-950/[.01] border-gray-700/[.1] hover:bg-gray-900 hover:text-white dark:bg-gray-50/[.10] dark:border-gray-50/[.1] dark:hover:bg-gray-50/[.15]">
-      <div className="flex flex-row items-center gap-2">
+    <figure className="relative w-[100%] md:w-[100%] border-red-500 lg:w-60 border-t-0 cursor-pointer overflow-hidden bg-white rounded-xl border p-4 bg-gray-950/[.01] border-gray-700/[.1] hover:bg-gray-900 hover:text-white dark:bg-gray-50/[.10] dark:border-gray-50/[.1] dark:hover:bg-gray-50/[.15]">
+      <div className="flex  flex-row items-center gap-2 ">
         <img className="rounded-full" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-md font-medium dark:text-gray-600">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-gray-800/40">{username}</p>
+          <p className="text-xs font-medium dark:text-gray-800/40">
+            {username}
+          </p>
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{body}</blockquote>
@@ -85,16 +87,16 @@ const ReviewCard = ({ img, name, username, body }) => {
 
 const MarqueeRew = () => {
   return (
-    <div className="relative flex h-[300px] gap-5 w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+    <div className="relative flex lg:h-[350px] h-[35rem] mt-10 gap-5 lg:w-full w-full  flex-col items-center justify-center md:overflow-hidden rounded-lg bg-background md:shadow-xl">
       {/* Left to Right Marquee */}
       <motion.div
-        className="flex space-x-8 animate-marquee"
+        className="flex space-x-8 animate-marquee mt-20  "
         initial={{ x: "100%" }}
         animate={{ x: "-100%" }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
         {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+          <ReviewCard key={review.username} {...review}  />
         ))}
       </motion.div>
 
@@ -111,10 +113,10 @@ const MarqueeRew = () => {
       </motion.div>
 
       {/* Gradient Mask */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white opacity-90"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white opacity-90"></div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-[50%] bg-gradient-to-r from-white opacity-60"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-[50%] bg-gradient-to-l from-white opacity-60"></div>
     </div>
   );
-}
+};
 
 export default MarqueeRew;
