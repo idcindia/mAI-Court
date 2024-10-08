@@ -6,14 +6,14 @@ const Consultation = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    type: "Personal Legal Consultation", 
+    type: "Initial Consultation",
     question: "",
     details: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); 
+    console.log(formData);
   };
 
   return (
@@ -30,58 +30,69 @@ const Consultation = () => {
           </h1>
           <p className="mt-4 text-xl text-slate-100">
             Get expert advice from professionals or AI-powered assistance for
-            your legal concerns. Choose from personal, business, or family law
-            consultations.
+            your legal concerns. Choose from various legal consultation options.
           </p>
         </div>
       </section>
 
       {/* Consultation Types Section */}
       <section className="container mx-auto py-10 px-6">
-        <h2 className="text-3xl font-semibold mb-6">Consultation Types</h2>
-        <ul className="space-y-4">
-          <li className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-bold">
-              1. Personal Legal Consultation
+        <h2 className="text-3xl font-semibold mb-6 text-center">
+          Choose Your Consultation Type
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">Initial Consultation</h3>
+            <p>
+              This consultation allows you to get a quick overview of your legal
+              situation, understand the basics, and receive initial advice.
+            </p>
+          </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">
+              Legal Advice Consultation
             </h3>
             <p>
-              Receive personal legal advice tailored to your specific needs.
-              From property disputes to personal injury cases, our experts are
-              here to assist you.
+              Get personalized legal advice for your specific needs. Our
+              experts will guide you with in-depth solutions to your legal
+              problems.
             </p>
-          </li>
-          <li className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-bold">2. Business Consultation</h3>
+          </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">
+              Mediation and Arbitration Consultation
+            </h3>
             <p>
-              Whether you need advice on contracts, partnerships, or regulatory
-              matters, our legal experts will provide you with business-oriented
+              Resolve disputes amicably through mediation and arbitration
+              without having to go to court. Consult our experts for guidance.
+            </p>
+          </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">
+              Business and Corporate Legal Consultation
+            </h3>
+            <p>
+              Get expert legal advice on contracts, partnerships, and
+              compliance to help your business thrive with legally sound
               solutions.
             </p>
-          </li>
-          <li className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-bold">3. Family Law Consultation</h3>
+          </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">Family Law Consultation</h3>
             <p>
-              Get support and legal guidance for family-related matters, such as
-              divorce, child custody, and domestic violence cases.
+              Consult on family matters such as divorce, child custody, and
+              other sensitive legal issues with our experienced family law
+              professionals.
             </p>
-          </li>
-          <li className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-bold">
-              4. Criminal Defense Consultation
-            </h3>
+          </div>
+          <div className="bg-white p-6 shadow-lg rounded-lg">
+            <h3 className="text-xl font-bold mb-2">Criminal Law Consultation</h3>
             <p>
-              Facing criminal charges? Consult with our defense attorneys to
-              explore your legal rights and defenses in criminal matters.
+              If you are facing criminal charges, consult with our defense
+              attorneys to explore your legal rights and defenses.
             </p>
-          </li>
-          <li className="bg-white p-6 shadow rounded-lg">
-            <h3 className="text-xl font-bold">5. AI-Powered Consultation</h3>
-            <p>
-              Our AI assistant can provide instant guidance and information on
-              various legal matters. Its fast, efficient, and available 24/7.
-            </p>
-          </li>
-        </ul>
+          </div>
+        </div>
       </section>
 
       {/* Request a Consultation Form */}
@@ -129,11 +140,12 @@ const Consultation = () => {
                   setFormData({ ...formData, type: e.target.value })
                 }
               >
-                <option>Personal Legal Consultation</option>
-                <option>Business Consultation</option>
+                <option>Initial Consultation</option>
+                <option>Legal Advice Consultation</option>
+                <option>Mediation and Arbitration Consultation</option>
+                <option>Business and Corporate Legal Consultation</option>
                 <option>Family Law Consultation</option>
-                <option>Criminal Defense Consultation</option>
-                <option>AI-Powered Consultation</option>
+                <option>Criminal Law Consultation</option>
               </select>
             </div>
             <div className="mb-4">

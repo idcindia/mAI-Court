@@ -69,8 +69,9 @@ const Navbar = () => {
       name: "Resources ▾",
       submenus: [
         { title: "Landmark Judgment Summaries", path: "/landmark-judgment-summaries" },
+        { title: "BNS Sections", path: "/bns-section" },
         { title: "Guides", path: "/guides" },
-        { title: "Templates", path: "/templates" }
+       
       ],
     },
     {
