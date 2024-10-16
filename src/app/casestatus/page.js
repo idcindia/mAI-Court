@@ -36,14 +36,14 @@ const CaseStatus = () => {
     <div>
       <section
         className="relative h-[400px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/Assets/law3.jpeg')" }} // Ensure image path is correct
+        style={{ backgroundImage: "url('/Assets/law3.jpeg')" }} 
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent font-times">
             Track Court cases in any Court
           </h1>
-          <p className="mt-4 text-xl text-slate-100">
+          <p className="mt-4 text-xl text-slate-100 font-serif">
             Track court cases across any court with real-time updates, ensuring you stay informed on case progress.
           </p>
         </div>
@@ -51,7 +51,7 @@ const CaseStatus = () => {
 
       <div className="p-5">
         <div className="flex justify-center items-center">
-          <h1 className="text-2xl font-bold mb-4">Home Case Status</h1>
+          <h1 className="text-2xl font-bold mb-4 p-2">Home Case Status</h1>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {cases.map((caseItem, index) => (
@@ -59,11 +59,11 @@ const CaseStatus = () => {
               key={index}
               className="border rounded-lg p-5 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
               whileHover={{ scale: 1.05 }}
-              onClick={() => router.push(caseItem.path)} // Correct use of router.push
+              onClick={() => router.push(caseItem.path)}
             >
               <div className="text-4xl mb-2">{caseItem.emoji}</div>
-              <h2 className="text-xl font-semibold">{caseItem.title}</h2>
-              <p className="text-gray-600">{caseItem.description}</p>
+              <h2 className="text-xl font-semibold font-times">{caseItem.title}</h2>
+              <p className="text-gray-600 font-serif">{caseItem.description}</p>
             </motion.div>
           ))}
         </div>

@@ -99,7 +99,7 @@ const Footer = () => {
         <div className="text-center flex items-center justify-between ms-20 mt-8 border-t border-gray-500 pt-4">
           <p className="font-times">&copy; 2024 mAICourt. All Rights Reserved.</p>
           <div className="flex justify-right text-right items-center">
-            <h1 className="text-lg font-times">IDCONS TECHNO PRIVATED LIMITED</h1>
+            <h1 className="text-lg font-times">IDCONS TECHNOVA PRIVATED LIMITED</h1>
           </div>
         </div>
       </div>
