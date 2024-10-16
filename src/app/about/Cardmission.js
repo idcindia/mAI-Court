@@ -4,10 +4,10 @@ const Cardmission = () => {
       <div className="flex flex-col lg:flex-row lg:justify-between items-start gap-12 lg:gap-20">
         {/* Mission Section */}
         <div className="lg:w-1/2 space-y-6">
-          <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left">
+          <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left font-times">
             Our Mission
           </h1>
-          <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
+          <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px] font-serif">
             &ldquo;धर्मेणैव जयते न्यायः&rdquo; – Justice prevails through righteousness
             alone. Guided by this principle, our mission is to bridge the
             justice gap by offering free legal aid and education, empowered by
@@ -18,10 +18,10 @@ const Cardmission = () => {
 
         {/* Vision Section */}
         <div className="lg:w-1/2 space-y-6">
-          <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left">
+          <h1 className="bg-gradient-to-r from-[#f89b1a] to-[#834e04] bg-clip-text text-4xl font-semibold text-transparent text-left font-times">
             Our Vision
           </h1>
-          <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px]">
+          <p className="text-base font-medium text-richblack-300 text-left leading-relaxed lg:min-h-[200px] font-serif">
             To modernize court procedures, ensure adequate judicial resources,
             promote timely judge appointments, and drive judicial reforms. We
             are dedicated to empowering underserved communities with legal aid,

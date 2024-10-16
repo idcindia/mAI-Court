@@ -43,23 +43,23 @@ const ipcSections = [
 const IPCSectionPage = () => {
   return (
     <div className="min-h-screen bg-gray-100">
-     <section
+      <section
         className="relative h-[400px] bg-cover bg-center"
         style={{ backgroundImage: "url('/Assests/rti-banner.jpg')" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent font-serif">
             Schedule a Legal Consultation
           </h1>
-          <p className="mt-4 text-xl text-slate-100">
+          <p className="mt-4 text-xl text-slate-100 font-serif">
             Get expert advice from professionals or AI-powered assistance for
             your legal concerns. Choose from various legal consultation options.
           </p>
         </div>
       </section>
       <div className="container mx-auto">
-        <h1 className="text-4xl font-bold text-center mt-6 mb-8">
+        <h1 className="text-4xl font-bold text-center mt-6 mb-8 font-serif">
           Popular Indian Penal Code Sections
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-8">
@@ -68,10 +68,10 @@ const IPCSectionPage = () => {
               key={index}
               className="bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition duration-300"
             >
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="text-xl font-semibold mb-2 font-serif">
                 {section.section} - {section.title}
               </h2>
-              <p className="text-gray-700">{section.description}</p>
+              <p className="text-gray-700 font-serif">{section.description}</p>
             </div>
           ))}
         </div>

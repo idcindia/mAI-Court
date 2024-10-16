@@ -7,12 +7,12 @@ import MarqueeRew from "@/app/components/common/ReviewCard";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center w-[100%]   border border-red-500">
+    <div className="flex flex-col items-center w-[100%] border border-red-500">
       <div className="flex flex-col items-center text-center">
-        <h1 className="mt-24 w-[15rem] h-10 bg-gradient-to-r from-[#F09819] to-[#7e5b2b] text-white text-xl font-semibold pt-2">
+        <h1 className="mt-24 w-[15rem] h-10 bg-gradient-to-r from-[#F09819] to-[#7e5b2b] text-white text-xl font-semibold pt-2 font-times">
           ।। धर्मेणैव जयते न्यायः।।
         </h1>
-        <div className="flex lg:flex-row w-[90%] mt-10 gap-10   flex-col justify-between">
+        <div className="flex lg:flex-row w-[90%] mt-10 gap-10 flex-col justify-between">
           {/* Set max-w-full to prevent overflow */}
           <div className="w-full lg:w-[45%] max-w-full">
             <Image
@@ -23,10 +23,10 @@ const About = () => {
             />
           </div>
           <div className="w-full lg:w-[45%] max-w-full mb-5">
-            <h1 className="mb-2 bg-gradient-to-r from-[#F09819] to-[#7e5b2b] bg-clip-text text-4xl font-bold text-transparent">
+            <h1 className="mb-2 bg-gradient-to-r from-[#F09819] to-[#7e5b2b] bg-clip-text text-4xl font-bold text-transparent font-times">
               Justice prevails through righteousness alone.
             </h1>
-            <p className="flex text-left w-full text-black-600 ">
+            <p className="flex text-left w-full text-black-600 font-serif">
               At mAI Court, we are driven by a profound commitment to bridge the
               vast gap in access to legal rights, services, and information in
               India. With over 6 crore pending court cases, the complexities of
@@ -56,10 +56,10 @@ const About = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center shadow-xl mb-5">
-          <h1 className="text-[#E59520] font-bold text-3xl">
+          <h1 className="text-[#E59520] font-bold text-3xl font-serif">
             <span className="text-3xl font-bold">What Our Clients Say</span>
           </h1>
-          <div className="w-[100%] overflow-hidden ">
+          <div className="w-[100%] overflow-hidden">
             <MarqueeRew />
           </div>
         </div>

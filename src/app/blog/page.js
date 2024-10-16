@@ -2,10 +2,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ArticleIcon from "@mui/icons-material/Article";
-import TagIcon from "@mui/icons-material/Tag";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 
-// Import the JSON data
+
 import blogData from "./blogData.json";
 
 const Blog = () => {
@@ -20,10 +18,10 @@ const Blog = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent">
+          <h1 className="text-5xl font-times font-bold bg-gradient-to-r from-[#F09819] to-[#f5c686] bg-clip-text text-transparent p-2">
             Our Blog
           </h1>
-          <p className="mt-4 text-xl text-slate-100">
+          <p className="mt-4 text-xl text-slate-100 font-serif">
             Explore our latest articles and updates. Stay informed with insights
             and tips.
           </p>
@@ -48,14 +46,14 @@ const Blog = () => {
                     width={800}
                     height={400}
                   />
-                  <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                  <h2 className="text-2xl font-bold mb-2 font-times">{post.title}</h2>
                   <p className="text-gray-600 mb-4">
-                    By <span className="font-semibold">{post.author}</span> on{" "}
-                    <span className="font-semibold">{post.date}</span>
+                    By <span className="font-semibold font-serif">{post.author}</span> on{" "}
+                    <span className="font-semibold font-serif">{post.date}</span>
                   </p>
-                  <p className="text-gray-800 mb-4">{post.summary}</p>
+                  <p className="text-gray-800 mb-4 font-serif">{post.summary}</p>
                   <Link href={post.link}>
-                    <span className="text-[#F09819] font-semibold hover:underline">
+                    <span className="text-[#F09819] font-semibold hover:underline font-serif">
                       Read More
                     </span>
                   </Link>
@@ -67,12 +65,12 @@ const Blog = () => {
             <div className="lg:w-1/3 space-y-10">
               {/* Categories */}
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold mb-4">Categories</h3>
+                <h3 className="text-xl font-bold mb-4 font-times">Categories</h3>
                 <ul className="space-y-2">
                   {categories.map((category) => (
                     <li key={category.name}>
                       <Link href={category.link}>
-                        <span className="text-[#F09819] hover:underline">
+                        <span className="text-[#F09819] hover:underline font-times">
                           {category.name}
                         </span>
                       </Link>
@@ -83,12 +81,12 @@ const Blog = () => {
 
               {/* Recent Posts */}
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
+                <h3 className="text-xl font-bold mb-4 font-times">Recent Posts</h3>
                 <ul className="space-y-4">
                   {recentPosts.map((post) => (
                     <li key={post.title}>
                       <Link href={post.link}>
-                        <span className="flex items-center text-gray-800 hover:text-[#F09819]">
+                        <span className="flex items-center text-gray-800 hover:text-[#F09819] font-serif">
                           <ArticleIcon className="text-[#F09819] mr-2" />{" "}
                           {post.title}
                         </span>
@@ -100,14 +98,14 @@ const Blog = () => {
 
               {/* Tags */}
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                <h3 className="text-xl font-bold mb-4">Tags</h3>
+                <h3 className="text-xl font-bold mb-4 font-serif">Tags</h3>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <Link
                       key={tag.name}
                       href={`/tags/${tag.name.toLowerCase()}`}
                     >
-                      <span className="bg-[#F09819] text-white px-4 py-2 rounded-full text-sm">
+                      <span className="bg-[#F09819] text-white px-4 py-2 rounded-full text-sm font-serif">
                         {tag.name}
                       </span>
                     </Link>

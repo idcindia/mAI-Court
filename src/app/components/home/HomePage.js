@@ -83,7 +83,7 @@ const ImageSlider = () => {
       {/* testimonials */}
       <div className="flex flex-col items-center justify-center shadow-xl mb-5">
         <h1 className="text-[#E59520] font-bold text-3xl">
-          <span className="text-3xl font-bold">What Our Clients Say</span>
+          <span className="text-3xl font-bold font-times">What Our Clients Say</span>
         </h1>
         <ReviewCard />
       </div>

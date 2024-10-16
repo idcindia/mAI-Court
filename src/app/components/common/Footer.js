@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col  md:flex-row justify-between items-center md:items-start text-center md:text-left space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left space-y-4 md:space-y-0">
           {/* Contact Information */}
           <div className="mb-4 md:mb-0 flex gap-y-10 flex-col">
             <div className="">
@@ -26,14 +26,14 @@ const Footer = () => {
               />
             </div>
             <div>
-              <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
-              <p className="flex items-center justify-center md:justify-start mb-1">
+              <h3 className="text-lg font-semibold mb-2 font-times ">Contact Us</h3>
+              <p className="flex items-center justify-center md:justify-start mb-1 font-times">
                 <FaPhoneAlt className="mr-2" /> +91 98704 04499
               </p>
-              <p className="flex items-center justify-center md:justify-start mb-1">
+              <p className="flex items-center justify-center md:justify-start mb-1 font-times">
                 <FaEnvelope className="mr-2" /> support@maicourt.com
               </p>
-              <p className="justify-center md:justify-start mb-1">
+              <p className="justify-center md:justify-start mb-1 font-times">
                 Address - GL 07, Ashoka Estate, Barakhamba Road, New Delhi
               </p>
             </div>
@@ -41,28 +41,28 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="mb-4 md:mb-0">
-            <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-2 font-times">Quick Links</h3>
             <ul>
               <li className="mb-1">
-                <a href="/about" className="hover:text-yellow-300 transition">
+                <a href="/about" className="hover:text-yellow-300 transition font-times">
                   About Us
                 </a>
               </li>
               <li className="mb-1">
                 <a
                   href="/services"
-                  className="hover:text-yellow-300 transition"
+                  className="hover:text-yellow-300 transition font-times"
                 >
                   Services
                 </a>
               </li>
               <li className="mb-1">
-                <a href="/privacy" className="hover:text-yellow-300 transition">
+                <a href="/privacy" className="hover:text-yellow-300 transition font-times">
                   Privacy Policy
                 </a>
               </li>
               <li className="mb-1">
-                <a href="/contact" className="hover:text-yellow-300 transition">
+                <a href="/contact" className="hover:text-yellow-300 transition font-times">
                   Contact Us
                 </a>
               </li>
@@ -71,7 +71,7 @@ const Footer = () => {
 
           {/* Social Media Links */}
           <div className="mb-4 md:mb-0 flex -flex-col">
-            <h3 className="text-lg font-semibold mb-2 mr-4">Follow Us </h3>
+            <h3 className="text-lg font-semibold mb-2 mr-4 font-times">Follow Us</h3>
             <div className="flex justify-center md:justify-start space-x-4">
               <a
                 href="https://facebook.com"
@@ -96,10 +96,10 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="text-center flex items-center justify-between ms-20 mt-8 border-t border-gray-700 pt-4">
-          <p>&copy; 2024 mAICourt. All Rights Reserved.</p>
+        <div className="text-center flex items-center justify-between ms-20 mt-8 border-t border-gray-500 pt-4">
+          <p className="font-times">&copy; 2024 mAICourt. All Rights Reserved.</p>
           <div className="flex justify-right text-right items-center">
-            <h1 className="text-lg">IDCONS TECHNO PRIVATED LIMITED</h1>
+            <h1 className="text-lg font-times">IDCONS TECHNO PRIVATED LIMITED</h1>
           </div>
         </div>
       </div>

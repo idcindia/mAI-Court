@@ -55,22 +55,22 @@ const LearningGrid = () => {
             {card.order < 0 ? (
               <div className="lg:w-[90%] flex flex-col gap-10 pb-10 lg:pb-0">
                 <div className=" ">
-                  <h1 className="bg-gradient-to-r from-[#F09819]  to-[#7e5b2b] bg-clip-text text-4xl font-bold text-transparent">
+                  <h1 className="bg-gradient-to-r from-[#F09819]  to-[#7e5b2b] bg-clip-text text-4xl font-bold text-transparent font-times">
                     Revolutionizing Justice with
                   </h1>
-                  <h2 className="bg-gradient-to-r from-[#F09819]  to-[#7e5b2b] bg-clip-text text-3xl font-bold text-transparent">
+                  <h2 className="font-times bg-gradient-to-r from-[#F09819]  to-[#7e5b2b] bg-clip-text text-3xl font-bold text-transparent">
                     AI-Powered Solutions
                   </h2>
                 </div>
-                <p className="text-gray-600 font-medium">{card.description}</p>
+                <p className="text-gray-600 font-medium font-serif">{card.description}</p>
 
                 <div className="w-fit mt-2"></div>
               </div>
             ) : (
               <div className="pt-7 flex flex-col gap-6">
-                <h1 className="text-white text-lg">{card.heading}</h1>
+                <h1 className="text-white text-lg font-serif">{card.heading}</h1>
 
-                <p className="text-slate-300 font-medium text-left pl-5">
+                <p className="text-slate-300 font-medium text-left pl-5 font-serif">
                   {card.description}
                 </p>
               </div>
