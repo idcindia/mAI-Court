@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Redux/Reducers/authSlice"; 
-import { Menu, MenuItem, IconButton } from "@mui/material"; 
+import { logout } from "../../Redux/Reducers/authSlice";
+import { Menu, MenuItem, IconButton } from "@mui/material";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
@@ -68,10 +68,12 @@ const Navbar = () => {
     {
       name: "Resources ▾",
       submenus: [
-        { title: "Landmark Judgment Summaries", path: "/landmark-judgment-summaries" },
+        {
+          title: "Landmark Judgment Summaries",
+          path: "/landmark-judgment-summaries",
+        },
         { title: "BNS Sections", path: "/bns-section" },
         { title: "Guides", path: "/guides" },
-       
       ],
     },
     {
@@ -135,12 +137,15 @@ const Navbar = () => {
         </div>
 
         {/* Navbar Links for Desktop */}
-        <ul className="hidden md:flex text-black items-center" ref={dropdownRef}>
+        <ul
+          className="hidden md:flex text-black items-center"
+          ref={dropdownRef}
+        >
           {navItems.map((item, idx) => (
             <li key={idx} className="relative group mx-3">
               <button
                 onClick={() => handleDropdownToggle(idx)}
-                className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200 focus:outline-none"
+                className="px-4 py-2 rounded-lg text-lg font-semibold transition hover:bg-gray-200 focus:outline-none font-times"
               >
                 {item.name}
               </button>
@@ -149,14 +154,16 @@ const Navbar = () => {
               {item.submenus && (
                 <div
                   className={`absolute left-0 mt-2 bg-white shadow-lg rounded-lg w-48 z-50 transition-all duration-300 ease-in-out overflow-hidden ${
-                    activeDropdown === idx ? "opacity-100 max-h-96" : "opacity-0 max-h-0"
+                    activeDropdown === idx
+                      ? "opacity-100 max-h-96"
+                      : "opacity-0 max-h-0"
                   }`}
                 >
                   {item.submenus.map((submenu, subIdx) => (
                     <Link
                       key={subIdx}
                       href={submenu.path}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 font-times"
                     >
                       {submenu.title}
                     </Link>
@@ -178,7 +185,7 @@ const Navbar = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
                 PaperProps={{
-                  style: { marginTop: '0.5rem' },
+                  style: { marginTop: "0.5rem" },
                 }}
               >
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -188,7 +195,7 @@ const Navbar = () => {
 
           {/* Premium Button */}
           <li className="ml-5">
-            <button className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] hover:from-[#b96c00] hover:to-[#3f2706] text-white font-semibold px-6 py-2 rounded-lg">
+            <button className="bg-gradient-to-r from-[#F09819] to-[#7e5b2b] hover:from-[#b96c00] hover:to-[#3f2706] text-white font-semibold px-6 py-2 rounded-lg font-times">
               Premium Services
             </button>
           </li>
