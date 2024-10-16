@@ -45,7 +45,7 @@ const ImageSlider = () => {
                   <div className="text-[4rem] sm:text-[5rem] md:text-[6rem] mb-2">
                     {section.icon}
                   </div>
-                  <div className="font-bold text-base sm:text-lg md:text-xl">
+                  <div className="font-bold text-base sm:text-lg md:text-xl font-times">
                     {section.title}
                   </div>
                 </motion.div>
@@ -64,7 +64,7 @@ const ImageSlider = () => {
                     <div className="text-[4rem] sm:text-[5rem] md:text-[6rem] mb-2">
                       {section.icon}
                     </div>
-                    <div className="font-bold text-base sm:text-lg md:text-xl">
+                    <div className="font-bold text-base sm:text-lg md:text-xl font-times">
                       {section.title}
                     </div>
                   </motion.div>

@@ -5,8 +5,8 @@ const SearchBar = () => {
     <div className="relative w-80 md:w-96 flex flex-row mt-10">
       <motion.input
         type="text"
-        className="w-full p-4 pl-10 h-14 text-gray-900 bg-white border border-gray-300 rounded-full shadow-lg focus:ring-2 focus:ring-gray-400 focus:outline-none transition-all duration-300 ease-in-out"
-        placeholder="Search for courses or topics..."
+        className="w-full p-4 pl-10 h-14 text-gray-900 bg-white border border-gray-300 rounded-full shadow-lg focus:ring-2 focus:ring-gray-400 focus:outline-none transition-all duration-300 ease-in-out font-times"
+        placeholder="Search your queries..."
         initial={{ scale: 1 }}
         whileFocus={{ scale: 1.02 }}
       />
@@ -30,7 +30,7 @@ const SearchBar = () => {
         </svg>
       </button>
       <motion.button
-        className="absolute right-0 top-1/2 h-14 w-[8rem] transform -translate-y-1/2 bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md hover:bg-gray-800 transition-colors focus:outline-none"
+        className="absolute right-0 top-1/2 h-14 w-[8rem] transform -translate-y-1/2 bg-black text-white px-6 py-2 rounded-full font-semibold shadow-md hover:bg-gray-800 transition-colors focus:outline-none font-times"
       
       >
         Search

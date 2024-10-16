@@ -73,7 +73,7 @@ export default function Header() {
               : "-translate-x-full opacity-0"
           }`}
         >
-          <h1 className="lg:text-5xl text-[2rem] font-bold mb-8 bg-gradient-to-r from-[#F09819] to-[#9e5d02] bg-clip-text text-transparent font-times">
+          <h1 className="lg:text-5xl text-[2rem] font-bold mb-8 p-4 bg-gradient-to-r from-[#F09819] to-[#9e5d02] bg-clip-text text-transparent font-times">
             {images[currentImage].title}
           </h1>
           <h2 className="lg:text-5xl text-[2rem] font-bold mb-4 text-[#414040] font-times">
