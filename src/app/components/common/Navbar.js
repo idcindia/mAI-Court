@@ -74,6 +74,7 @@ const Navbar = () => {
         },
         { title: "BNS Sections", path: "/bns-section" },
         { title: "Guides", path: "/guides" },
+        { title: "Glossary", path: "/glossary" },
       ],
     },
     {
